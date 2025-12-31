@@ -1,0 +1,89 @@
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project-modal-content::-webkit-scrollbar {
+  width: 20px;
+}
+
+.project-modal-content::-webkit-scrollbar-track {
+  background: rgba(197, 167, 252, 0.1);
+  border-radius: 20px;
+}
+
+.project-modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0c0618 0%, #fca6ec 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(197, 167, 252, 0.3);
+}
+
+.project-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #ffdbf8;
+  box-shadow: 0 0 10px rgba(252, 166, 236, 0.5);
+}
+
+.project-modal-content {
+  scrollbar-color: #C5A7FC rgba(197, 167, 252, 0.1);
+  scrollbar-width: thin;
+}
+
+
+.project-action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(252, 166, 236, 0.6);
+}
+
+.project-action-button:active {
+  transform: translateY(0);
+}
+
+/* Close button styles */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 32px;
+  cursor: pointer;
+  font-weight: 300;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.close-button:hover {
+  transform: scale(1.2);
+  color: #fca6ec;
+}
+
+.close-button:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .project-action-button:hover {
+    transform: translateY(-1px);
+  }
+
+  .close-button {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .close-button {
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+  }
+}

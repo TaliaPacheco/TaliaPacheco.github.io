@@ -1,0 +1,36 @@
+{
+    "Cursos": [
+        {
+            "route": "/courses",
+            "method": "POST",
+            "description": "Criar um novo curso"
+        },
+        {
+            "route": "/courses",
+            "method": "GET",
+            "description": "Listar todos os cursos"
+        },
+        {
+            "route": "/courses",
+            "method": "PUT",
+            "description": "Atualizar um curso"
+        },
+        {
+            "route": "/courses",
+            "method": "DELETE",
+            "description": "Deletar um curso"
+        }
+    ],
+    "Modulos": [
+        {
+            "route": "/modules",
+            "method": "GET",
+            "description": "Listar todos os cursos"
+        },
+        {
+            "route": "/courses/:id/modules",
+            "method": "GET",
+            "description": "Listar módulos de um curso específico"
+        }
+    ]
+}

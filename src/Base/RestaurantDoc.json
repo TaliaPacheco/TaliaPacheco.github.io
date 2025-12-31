@@ -1,0 +1,90 @@
+{
+    "Produtos": [
+        {
+            "route": "/products",
+            "method": "GET",
+            "description": "Lista todos os produtos"
+        },
+        {
+            "route": "/products",
+            "method": "POST",
+            "description": "Cria um novo produto."
+        },
+        {
+            "route": "/products/:id",
+            "method": "PUT",
+            "description": "Atualiza um produto."
+        },
+        {
+            "route": "/products/:id",
+            "method": "DELETE",
+            "description": "Remove um produto."
+        }
+    ],
+    "Mesas": [
+        {
+            "route": "/tables",
+            "method": "GET",
+            "description": "Lista todas as mesas."
+        },
+        {
+            "route": "/tables",
+            "method": "POST",
+            "description": "Cria uma nova mesa."
+        },
+        {
+            "route": "/tables/:id",
+            "method": "PUT",
+            "description": "Atualiza uma mesa."
+        },
+        {
+            "route": "/tables/:id",
+            "method": "DELETE",
+            "description": "Remove uma mesa."
+        }
+    ],
+    "Sessões de Mesa": [
+        {
+            "route": "/table-sessions",
+            "method": "GET",
+            "description": "Lista todas as sessões de mesa."
+        },
+        {
+            "route": "/table-sessions",
+            "method": "POST",
+            "description": "Cria uma nova sessão de mesa."
+        },
+        {
+            "route": "/table-sessions/:id",
+            "method": "PUT",
+            "description": "Atualiza uma sessão de mesa."
+        },
+        {
+            "route": "/table-sessions/:id",
+            "method": "DELETE",
+            "description": "Remove uma sessão de mesa."
+        }
+    ],
+    "Pedidos": [
+        {
+            "route": "/orders",
+            "method": "GET",
+            "description": "Lista todos os pedidos."
+        },
+        {
+            "route": "/orders",
+            "method": "POST",
+            "description": "Cria um novo pedido."
+        },
+        {
+            "route": "/orders/:id",
+            "method": "PUT",
+            "description": "Atualiza um pedido."
+        },
+        {
+            "route": "/orders/:id",
+            "method": "DELETE",
+            "description": "Remove um pedido."
+        }
+    ]
+}

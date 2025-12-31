@@ -1,0 +1,24 @@
+{
+    "Tickets": [
+        {
+            "route": "/tickets",
+            "method": "POST",
+            "description": "Criar um novo ticket"
+        },
+        {
+            "route": "/tickets",
+            "method": "GET",
+            "description": "Listar todos os tickets"
+        },
+        {
+            "route": "/tickets/:id",
+            "method": "PUT",
+            "description": "Atualizar um ticket"
+        },
+        {
+            "route": "/tickets/:id",
+            "method": "PATCH",
+            "description": "Fecha o ticket com solução"
+        }
+    ]
+}
