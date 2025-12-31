@@ -1,8 +1,7 @@
-import { CursosDoc } from '../Base'
+import { CursosDoc } from '../Base';
+import type { WorkFlowSectionProps, APIEndpoint } from '../types/workflow';
 
-interface WorkFlowSectionProps {
-    workflow?: React.ReactNode;
-}
+const cursosDoc = CursosDoc as Record<string, APIEndpoint[]>;
 
 export default function WorkFlowCursos({ workflow }: WorkFlowSectionProps) {
 
@@ -30,7 +29,7 @@ export default function WorkFlowCursos({ workflow }: WorkFlowSectionProps) {
           API Endpoints:
         </h2>
         {
-          Object.entries(CursosDoc).map(([GroupName, GroupItens]) => {
+          Object.entries(cursosDoc).map(([GroupName, GroupItens]) => {
             return (
               <div
                 style={{
@@ -68,7 +67,7 @@ export default function WorkFlowCursos({ workflow }: WorkFlowSectionProps) {
                     
                   }}
                 >
-                  {GroupItens.map((Item) => (
+                  {GroupItens.map((Item: APIEndpoint) => (
                     <div
                       style={{
                         width: "100%",

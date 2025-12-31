@@ -1,9 +1,8 @@
 import maletaSVG from '../assets/icons/maleta.svg';
 import { RestaurantDoc } from '../Base'
+import type { WorkFlowSectionProps, APIEndpoint } from '../types/workflow';
 
-interface WorkFlowSectionProps {
-  workflow?: React.ReactNode;
-}
+const restaurantDoc = RestaurantDoc as Record<string, APIEndpoint[]>;
 
 export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) {
 
@@ -74,7 +73,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
           API Endpoints:
         </h2>
         {
-          Object.entries(RestaurantDoc).map(([GroupName, GroupItens]) => {
+          Object.entries(restaurantDoc).map(([GroupName, GroupItens]) => {
             return (
               <div
                 style={{
@@ -112,7 +111,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
                     
                   }}
                 >
-                  {GroupItens.map((Item) => (
+                  {GroupItens.map((Item: APIEndpoint) => (
                     <div
                       style={{
                         width: "100%",

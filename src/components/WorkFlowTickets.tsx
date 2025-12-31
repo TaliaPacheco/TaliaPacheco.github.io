@@ -1,8 +1,7 @@
 import {TicketsDocs} from '../Base';
+import type { WorkFlowSectionProps, APIEndpoint } from '../types/workflow';
 
-interface WorkFlowSectionProps {
-    workflow?: React.ReactNode;
-}
+const ticketsDoc = TicketsDocs as Record<string, APIEndpoint[]>;
 
 export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
 
@@ -30,7 +29,7 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
               API Endpoints:
             </h2>
             {
-              Object.entries(TicketsDocs).map(([GroupName, GroupItens]) => {
+              Object.entries(ticketsDoc).map(([GroupName, GroupItens]) => {
                 return (
                   <div
                     style={{
@@ -68,7 +67,7 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
                         
                       }}
                     >
-                      {GroupItens.map((Item) => (
+                      {GroupItens.map((Item: APIEndpoint) => (
                         <div
                           style={{
                             width: "100%",
