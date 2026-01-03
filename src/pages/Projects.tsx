@@ -57,7 +57,7 @@ export default function Projects() {
       alt: "monitoramento meteorológico",
       details: "Sistema de monitoramento meteorológico em tempo real com arquitetura moderna de microsserviços, integrando dados climáticos, análise com IA e recomendações gamificadas com Pokémon.",
       technologies: ["React", "TypeScript", "Vite", "TailwindCSS", "Leaflet", "NestJS", "Go", "Python", "RabbitMQ", "MongoDB", "Docker", "OpenAI"],
-      link: "https://github.com/TaliaPacheco/desafio-gdash-2025-02",
+      link: "https://github.com/TaliaPacheco/Monitoramento-meteorol-gico",
       image: climaImg,
       WorkFlow: <WorkFlowSection />,
     },
