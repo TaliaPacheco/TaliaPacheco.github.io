@@ -152,9 +152,8 @@
 }
 
 .avatar-circle {
-  width: 350px;
   height: 350px;
-  border-radius: 50%;
+  border-radius: 80%;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(233, 30, 99, 0.2);
   animation: float 3s ease-in-out infinite;

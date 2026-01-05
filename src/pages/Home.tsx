@@ -24,7 +24,7 @@ import carteiraSVG from '../assets/icons/carteira.svg';
 import cuboPNG from '../assets/icons/cubo.svg';
 import mesaSVG from '../assets/icons/mesa.svg';
 
-import TaliaIMG from '../assets/Talia-foto.webp';
+import TaliaIMG from '../assets/Talia-foto.png';
 import CurriculoPDF from '../assets/Talia Pacheco Curriculo .pdf';
 import ProjectsSection from '../components/ProjectsSection';
 import SkillsSection from '../components/SkillsSection';
