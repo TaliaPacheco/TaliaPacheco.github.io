@@ -7,8 +7,14 @@ interface ContactFormData {
 
 export async function saveContactToSheet(data: ContactFormData): Promise<void> {
   try {
-    const SCRIPT_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || '';
-    const SECRET = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_SECRET || '';
+    // Usar import.meta.env diretamente (Vite carrega automaticamente)
+    const SCRIPT_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
+    const SECRET = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_SECRET;
+
+    console.log('Verificando configuração:', {
+      URL_exists: !!SCRIPT_URL,
+      URL: SCRIPT_URL
+    });
 
     if (!SCRIPT_URL) {
       throw new Error('URL do Google Apps Script não configurada. Configure VITE_GOOGLE_APPS_SCRIPT_URL no arquivo .env.local');
