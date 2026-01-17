@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import nestSVG from '../assets/icons/nestjs.svg';
 import goSVG from '../assets/icons/go.svg';
 import pythonSVG from '../assets/icons/python.svg';
@@ -16,6 +17,7 @@ interface WorkFlowSectionProps {
 }
 
 export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
+  const { t } = useTranslation();
 
   if (!workflow) return null;
 
@@ -24,7 +26,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
   return (
     <div style={{ padding: isMobile ? "10px 5px" : "10px", marginLeft: isMobile ? "0" : "10px" }}>
       <div style={{ display: "flex", marginBottom: "20px" }}>
-        <h2 style={{ fontSize: isMobile ? "1.5rem" : "2rem", fontWeight: 700 }}>Workflow</h2>
+        <h2 style={{ fontSize: isMobile ? "1.5rem" : "2rem", fontWeight: 700 }}>{t('workflow.workflowSection.workflow')}</h2>
       </div>
         <div 
             style={{ 
@@ -47,7 +49,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                     color: "#C5A7FC" 
                 }}
             >
-                Backend
+                {t('workflow.workflowSection.backend')}
             </h2>
             <div
                 style={{
@@ -99,7 +101,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                         />
                     </div>
                     <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>Python</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>Collector</p>
+                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.collector')}</p>
                     </div>
 
                     <p style={{ display: "flex", alignItems: "center", marginTop: isMobile ? "0" : "20px", fontSize: isMobile ? "1.5rem" : "1rem", transform: isMobile ? "rotate(90deg)" : "none" }}>⟶</p>
@@ -132,7 +134,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                         />
                     </div>
                     <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>RabbitMQ</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>Message Broker</p>
+                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.messageBroker')}</p>
                     </div>
                     <p style={{ display: "flex", alignItems: "center", marginTop: isMobile ? "0" : "20px", fontSize: isMobile ? "1.5rem" : "1rem", transform: isMobile ? "rotate(90deg)" : "none" }}>⟶</p>
                     <div 
@@ -158,7 +160,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                         <img src={goSVG} alt="" style={{ width: "40px", height: "40px" }} />
                     </div>
                     <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>Go</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>Worker</p>
+                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.worker')}</p>
                     </div>
                     <p style={{ display: "flex", alignItems: "center", marginTop: isMobile ? "0" : "20px", fontSize: isMobile ? "1.5rem" : "1rem", transform: isMobile ? "rotate(90deg)" : "none" }}>⟶</p>
                     <div 
@@ -184,7 +186,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                         <img src={nestSVG} alt="" style={{ width: "40px", height: "40px" }} />
                     </div>
                     <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>NestJS</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>API</p>
+                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.api')}</p>
                     </div>
                 </div>
             </div>
@@ -235,7 +237,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                             height: "20px",
                             flexShrink: 0
                         }} src={databaseSVG} alt="" />
-                        <p style={{ color: "#C5A7FC", margin: "0", flex: "1" }}>Database: <strong>MongoDB</strong></p>
+                        <p style={{ color: "#C5A7FC", margin: "0", flex: "1" }}>{t('workflow.workflowSection.database')}: <strong>MongoDB</strong></p>
                     </div>
                 </div>
         </div>  
@@ -284,7 +286,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                 >
                     Frontend
                 </h2> 
-                <p style={{ fontSize: isMobile ? "0.9rem" : "1rem", padding: "10px 0px 10px 0px" }}>A interface foi construida com as seguintes tecnologias:</p>
+                <p style={{ fontSize: isMobile ? "0.9rem" : "1rem", padding: "10px 0px 10px 0px" }}>{t('interface.builtWith')}</p>
 
                 <div 
                     style={{
@@ -395,8 +397,8 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                         </div>
                             
                         <div style={{ gap: "8px", marginLeft: "15px" }}>
-                            <h4>Tecnologias</h4>
-                            <p style={{fontSize: "0.8rem"}}>React ● Vite ● Tailwind ● shadcn/ui</p>
+                            <h4>{t('interface.technologiesTitle')}</h4>
+                            <p style={{fontSize: "0.8rem"}}>{t('interface.frontendStack')}</p>
                         </div>
                     </div>
                     <div
@@ -413,7 +415,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                             padding: "8px"
                         }}
                     >
-                        <h4 style={{ color: "#C5A7FC", }}>● Conectado ao Nest</h4>
+                        <h4 style={{ color: "#C5A7FC", }}>{t('interface.connectedToNest')}</h4>
                     </div>
                 </div>
             </div>

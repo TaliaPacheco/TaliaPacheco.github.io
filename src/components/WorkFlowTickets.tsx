@@ -1,9 +1,12 @@
 import {TicketsDocs} from '../Base';
+import { useTranslation } from 'react-i18next';
 import type { WorkFlowSectionProps, APIEndpoint } from '../types/workflow';
 
 const ticketsDoc = TicketsDocs as Record<string, APIEndpoint[]>;
 
 export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
+
+  const { t } = useTranslation();
 
   if (!workflow) return null;
 
@@ -26,7 +29,7 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
                 padding: "20px 0 20px 15px"
               }}
             >
-              API Endpoints:
+              {t('workflow.apiEndpoints')}
             </h2>
             {
               Object.entries(ticketsDoc).map(([GroupName, GroupItens]) => {

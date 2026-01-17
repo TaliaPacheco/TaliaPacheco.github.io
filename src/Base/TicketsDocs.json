@@ -3,22 +3,22 @@
         {
             "route": "/tickets",
             "method": "POST",
-            "description": "Criar um novo ticket"
+            "description": "Create a new ticket"
         },
         {
             "route": "/tickets",
             "method": "GET",
-            "description": "Listar todos os tickets"
+            "description": "List all tickets"
         },
         {
             "route": "/tickets/:id",
             "method": "PUT",
-            "description": "Atualizar um ticket"
+            "description": "Update a ticket"
         },
         {
             "route": "/tickets/:id",
             "method": "PATCH",
-            "description": "Fecha o ticket com solução"
+            "description": "Close the ticket with solution"
         }
     ]
 }

@@ -1,0 +1,124 @@
+{
+  "common": {
+    "language": "Português",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "navbar": {
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "cta": "Entrar em contato",
+    "backHome": "Voltar a home"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "name": "Talia Pacheco",
+    "subtitle": "Desenvolvedora Full-Stack transformando ideias em realidade digital.",
+    "downloadCV": "Baixar Currículo",
+    "downloadCVPortuguese": "Currículo em Português",
+    "downloadCVEnglish": "Currículo em Inglês",
+    "viewProjects": "Ver projetos",
+    "talkWithMe": "Fale Comigo"
+  },
+  "skills": {
+    "title": "Habilidades & Tecnologias",
+    "subtitle": "Tecnologias com as quais trabalho para criar soluções digitais modernas.",
+    "frontend": "⚡ Frontend",
+    "backend": "🗄️ Backend",
+    "databases": "🗄️ Databases",
+    "tools": "🛠️ Ferramentas"
+  },
+  "projects": {
+    "title": "Meus Projetos",
+    "viewMore": "VER MAIS PROJETOS",
+    "pageDescription": "Uma seleção de projetos que demonstram minhas habilidades em desenvolvimento web, design e tecnologia.",
+    "clickToLearn": "Clique para entender mais.",
+    "monitoringTitle": "Monitoramento Meteorológico",
+    "monitoringDesc": "Aplicação para monitoramento de condições climáticas em tempo real.",
+    "monitoringDetails": "Sistema de monitoramento meteorológico em tempo real com arquitetura moderna de microsserviços, integrando dados climáticos, análise com IA e recomendações gamificadas com Pokémon.",
+    "refundTitle": "Sistema de Reembolso",
+    "refundDesc": "Sistema para gerenciamento de reembolsos com interface intuitiva.",
+    "refundDetails": "Um projeto React + Vite desenvolvido para fins educacionais e prática de desenvolvimento. O sistema demonstra boas práticas de organização de código, componentização e estilização moderna com TailwindCSS. O projeto foi estruturado para ser escalável e fácil de manter, com uma separação clara entre componentes reutilizáveis, páginas, rotas e utilitários.",
+    "restaurantTitle": "API Restaurante",
+    "restaurantDesc": "API de gerenciamento de pedidos de mesas de um restaurante",
+    "restaurantDetails": "API de gerenciamento de pedidos de mesas de um restaurante, desenvolvida com Node.js, Express e SQLite. O projeto implementa uma arquitetura robusta com separação clara de responsabilidades, incluindo controladores, middlewares, rotas e utilitários. A API oferece funcionalidades completas de gestão de produtos, mesas, sessões de mesa e pedidos, com validação de dados usando Zod e tratamento de erros personalizado.",
+    "coursesTitle": "Gerenciamento de Cursos",
+    "coursesDesc": "Clique para entender mais.",
+    "coursesDetails": "Uma API REST desenvolvida com Node.js e TypeScript para gerenciamento completo de cursos e seus módulos. O projeto utiliza Knex como query builder para operações com SQLite3, demonstrando boas práticas de desenvolvimento backend com arquitetura robusta, separação de responsabilidades e endpoints bem documentados para CRUD de cursos e módulos.",
+    "ticketsTitle": "Suport Tickets",
+    "ticketsDesc": "Clique para entender mais.",
+    "ticketsDetails": "Uma API simples em Node.js para gerenciar tickets de suporte. Este projeto foi criado como um estudo para praticar Node.js e conceitos de APIs RESTful.",
+    "moreProjectsTitle": "Ver Mais Projetos",
+    "moreProjectsDesc": "Acesse meu GitHub",
+    "technologies": "Tecnologias Utilizadas:",
+    "aboutProject": "Sobre o projeto",
+    "viewFullProject": "Ver Projeto Completo"
+  },
+  "workflow": {
+    "title": "Fluxo de Trabalho do Projeto",
+    "apiEndpoints": "API Endpoints:",
+    "workflowSection": {
+      "workflow": "Workflow",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "collector": "Coletor",
+      "messageBroker": "Message Broker",
+      "worker": "Processador",
+      "api": "API",
+      "database": "Banco de Dados"
+    },
+    "refund": {
+      "workflowTitle": "Fluxo de Trabalho do Projeto",
+      "step1": "O funcionário acessa o sistema e preenche o formulário de reembolso.",
+      "step2": "O sistema valida os dados inseridos e envia para aprovação do gerente.",
+      "step3": "O gerente revisa o pedido e aprova ou rejeita o reembolso.",
+      "step4": "Se aprovado, o departamento financeiro processa o pagamento ao funcionário.",
+      "step5": "O funcionário é notificado sobre o status do reembolso.",
+      "loginScreen": "Tela de login:",
+      "managerScreen": "Tela Manager:",
+      "employeeScreen": "Tela Employee:"
+    },
+    "restaurant": {
+      "workflowTitle": "Fluxo de Trabalho do Projeto",
+      "step1": "Gestão completa de Produtos, Mesas e Pedidos.",
+      "step2": "Validação de dados com Zod.",
+      "step3": "Tratamento de erros personalizado com AppError.",
+      "step4": "Migrações e seeds de banco de dados com Knex.",
+      "step5": "Endpoints RESTful bem definidos."
+    }
+  },
+  "interface": {
+    "technologiesTitle": "Tecnologias",
+    "frontendStack": "React ● Vite ● Tailwind ● shadcn/ui",
+    "connectedToNest": "● Conectado ao Nest",
+    "builtWith": "A interface foi construida com as seguintes tecnologias:"
+  },
+  "contact": {
+    "title": "Vamos construir algo",
+    "subtitle": "juntos?",
+    "description": "Estou disponível para novos projetos e colaborações. Sinta-se à vontade para me enviar uma mensagem.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "name": "Seu nome",
+    "namePlaceholder": "Digite seu nome completo",
+    "emailLabel": "Email",
+    "emailPlaceholder": "seu.email@example.com",
+    "message": "Mensagem",
+    "messagePlaceholder": "Digite sua mensagem aqui",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "successMessage": "Mensagem enviada com sucesso!",
+    "errorMessage": "Erro ao enviar mensagem. Verifique a configuração do Google Sheets."
+  },
+  "footer": {
+    "copyright": "Feito com carinho por Talia Pacheco em 2025."
+  },
+  "proficiency": {
+    "beginner": "Iniciante",
+    "intermediate": "Intermediário",
+    "advanced": "Avançado"
+  }
+}

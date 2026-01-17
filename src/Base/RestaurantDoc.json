@@ -3,88 +3,88 @@
         {
             "route": "/products",
             "method": "GET",
-            "description": "Lista todos os produtos"
+            "description": "List all products"
         },
         {
             "route": "/products",
             "method": "POST",
-            "description": "Cria um novo produto."
+            "description": "Create a new product."
         },
         {
             "route": "/products/:id",
             "method": "PUT",
-            "description": "Atualiza um produto."
+            "description": "Update a product."
         },
         {
             "route": "/products/:id",
             "method": "DELETE",
-            "description": "Remove um produto."
+            "description": "Remove a product."
         }
     ],
     "Mesas": [
         {
             "route": "/tables",
             "method": "GET",
-            "description": "Lista todas as mesas."
+            "description": "List all tables."
         },
         {
             "route": "/tables",
             "method": "POST",
-            "description": "Cria uma nova mesa."
+            "description": "Create a new table."
         },
         {
             "route": "/tables/:id",
             "method": "PUT",
-            "description": "Atualiza uma mesa."
+            "description": "Update a table."
         },
         {
             "route": "/tables/:id",
             "method": "DELETE",
-            "description": "Remove uma mesa."
+            "description": "Remove a table."
         }
     ],
     "Sessões de Mesa": [
         {
             "route": "/table-sessions",
             "method": "GET",
-            "description": "Lista todas as sessões de mesa."
+            "description": "List all table sessions."
         },
         {
             "route": "/table-sessions",
             "method": "POST",
-            "description": "Cria uma nova sessão de mesa."
+            "description": "Create a new table session."
         },
         {
             "route": "/table-sessions/:id",
             "method": "PUT",
-            "description": "Atualiza uma sessão de mesa."
+            "description": "Update a table session."
         },
         {
             "route": "/table-sessions/:id",
             "method": "DELETE",
-            "description": "Remove uma sessão de mesa."
+            "description": "Remove a table session."
         }
     ],
     "Pedidos": [
         {
             "route": "/orders",
             "method": "GET",
-            "description": "Lista todos os pedidos."
+            "description": "List all orders."
         },
         {
             "route": "/orders",
             "method": "POST",
-            "description": "Cria um novo pedido."
+            "description": "Create a new order."
         },
         {
             "route": "/orders/:id",
             "method": "PUT",
-            "description": "Atualiza um pedido."
+            "description": "Update an order."
         },
         {
             "route": "/orders/:id",
             "method": "DELETE",
-            "description": "Remove um pedido."
+            "description": "Remove an order."
         }
     ]
 }

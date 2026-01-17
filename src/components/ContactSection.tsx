@@ -1,9 +1,11 @@
 import '../styles/ContactModal.css';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { saveContactToSheet } from '../services/googleSheets';
 import Toast from './Toast';
 
 export default function ContactSection() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,7 +39,7 @@ export default function ContactSection() {
         message: formData.message
       });
       
-      setToast({ message: 'Mensagem enviada com sucesso!', type: 'success' });
+      setToast({ message: t('contact.successMessage'), type: 'success' });
       setFormData({ name: '', email: '', message: '' });
       setIsSubmitting(false);
     } catch (error) {
@@ -46,7 +48,7 @@ export default function ContactSection() {
         message: (error as Error).message,
         stack: (error as Error).stack
       });
-      setToast({ message: 'Erro ao enviar mensagem. Verifique a configuração do Google Sheets.', type: 'error' });
+      setToast({ message: t('contact.errorMessage'), type: 'error' });
       setIsSubmitting(false);error
     }
   };
@@ -57,14 +59,14 @@ export default function ContactSection() {
         <div className="contact-modal">
           <div className="modal-content">
             <div className="modal-left">
-              <h2>Vamos construir algo <br/>juntos?</h2>
-              <p>Estou disponível para novos projetos e colaborações. Sinta-se à vontade para me enviar uma mensagem.</p>
+              <h2>{t('contact.title')} <br/>{t('contact.subtitle')}</h2>
+              <p>{t('contact.description')}</p>
               
               <div className="contact-info">
                 <div className="info-item">
                   <div className="info-icon">✉️</div>
                   <div>
-                    <h4>Email</h4>
+                    <h4>{t('contact.email')}</h4>
                     <a href="mailto:taliapacheco0@gmail.com">taliapacheco0@gmail.com</a>
                   </div>
                 </div>
@@ -72,7 +74,7 @@ export default function ContactSection() {
                 <div className="info-item">
                   <div className="info-icon">🔗</div>
                   <div>
-                    <h4>LinkedIn</h4>
+                    <h4>{t('contact.linkedin')}</h4>
                     <a href="https://www.linkedin.com/in/talia-pacheco/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
                   </div>
                 </div>
@@ -80,7 +82,7 @@ export default function ContactSection() {
                 <div className="info-item">
                   <div className="info-icon">💻</div>
                   <div>
-                    <h4>GitHub</h4>
+                    <h4>{t('contact.github')}</h4>
                     <a href="https://github.com/taliapacheco" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
                   </div>
                 </div>
@@ -90,12 +92,12 @@ export default function ContactSection() {
             <div className="modal-right">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="name">Seu nome</label>
+                  <label htmlFor="name">{t('contact.name')}</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Digite seu nome completo"
+                    placeholder={t('contact.namePlaceholder')}
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -103,12 +105,12 @@ export default function ContactSection() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Seu email</label>
+                  <label htmlFor="email">{t('contact.emailLabel')}</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="exemplo@email.com"
+                    placeholder={t('contact.emailPlaceholder')}
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -116,11 +118,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="message">Sua mensagem</label>
+                  <label htmlFor="message">{t('contact.message')}</label>
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Deixe sua mensagem aqui..."
+                    placeholder={t('contact.messagePlaceholder')}
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
@@ -133,7 +135,7 @@ export default function ContactSection() {
                   className="submit-button"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+                  {isSubmitting ? t('contact.sending') : t('contact.send')}
                 </button>
               </form>
             </div>

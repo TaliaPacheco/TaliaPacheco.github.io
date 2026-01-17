@@ -1,4 +1,5 @@
 import '../styles/ProjectModal.css';
+import { useTranslation } from 'react-i18next';
 
 import imageClima from '../assets/images/climaImg.png'
 import arquivoSVG from '../assets/icons/arquivo.svg';
@@ -27,7 +28,7 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ isOpen, project, onClose, }: ProjectModalProps) {
-
+  const { t } = useTranslation();
 
     if (!isOpen || !project) return null;
 
@@ -96,7 +97,7 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                             zIndex: 10,
                         }}
                     >
-                        {isMobile ? "Projeto" : "Ver Projeto Completo"} <span style={{ fontSize: isMobile ? "14px" : "16px" }}>↗</span>
+                        {isMobile ? t('projects.clickToLearn') : t('projects.viewFullProject')} <span style={{ fontSize: isMobile ? "14px" : "16px" }}>↗</span>
                     </a>
                 )}
                 <div style={{ height: isMobile ? "10%" : "100%", width: isMobile ? "100%" : "30%" }}>
@@ -133,7 +134,7 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                                 color: "#fca6ec", 
                                 marginBottom: "20px", 
                                 marginLeft: isMobile ? "0" : "10px"}}>
-                                    Tecnologias Utilizadas:
+                                    {t('projects.technologies')}
                         </h3>
                         <div style={{ display: "flex", 
                             flexWrap: "wrap", 
@@ -166,7 +167,7 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                                         }}
                                          src={arquivoSVG} alt="icone de arquivo" 
                                     />
-                                    <h2 style={{ fontSize: isMobile ? "1.3rem" : "2rem", fontWeight: 700,  marginBottom: "0px" }}>Sobre o projeto</h2>
+                                    <h2 style={{ fontSize: isMobile ? "1.3rem" : "2rem", fontWeight: 700,  marginBottom: "0px" }}>{t('projects.aboutProject')}</h2>
                                 </div>
                                 <p 
                                     style=

@@ -1,0 +1,121 @@
+.cv-download-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cv-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: #E91E63;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  transition: all 0.3s ease;
+  font-family: "Raleway", sans-serif;
+}
+
+.cv-download-btn:hover {
+  background: #C2185B;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(233, 30, 99, 0.3);
+}
+
+.cv-download-btn:active {
+  transform: translateY(0);
+}
+
+.cv-download-btn .arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  font-size: 0.7rem;
+}
+
+.cv-download-btn .arrow.open {
+  transform: rotate(180deg);
+}
+
+.cv-dropdown {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1000;
+  min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.cv-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-weight: 500;
+}
+
+.cv-option:not(:last-child) {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cv-option:hover {
+  background: rgba(233, 30, 99, 0.08);
+  padding-left: 1.4rem;
+  color: #E91E63;
+}
+
+.cv-option .flag {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  min-width: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cv-download-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .cv-dropdown {
+    min-width: 200px;
+  }
+
+  .cv-option {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .cv-option:hover {
+    padding-left: 1.2rem;
+  }
+}

@@ -3,34 +3,34 @@
         {
             "route": "/courses",
             "method": "POST",
-            "description": "Criar um novo curso"
+            "description": "Create a new course"
         },
         {
             "route": "/courses",
             "method": "GET",
-            "description": "Listar todos os cursos"
+            "description": "List all courses"
         },
         {
             "route": "/courses",
             "method": "PUT",
-            "description": "Atualizar um curso"
+            "description": "Update a course"
         },
         {
             "route": "/courses",
             "method": "DELETE",
-            "description": "Deletar um curso"
+            "description": "Delete a course"
         }
     ],
     "Modulos": [
         {
             "route": "/modules",
             "method": "GET",
-            "description": "Listar todos os cursos"
+            "description": "List all courses"
         },
         {
             "route": "/courses/:id/modules",
             "method": "GET",
-            "description": "Listar módulos de um curso específico"
+            "description": "List modules of a specific course"
         }
     ]
 }

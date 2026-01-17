@@ -1,6 +1,7 @@
 import '../styles/Home.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import reactSVG from '../assets/icons/react.svg';
 import reactNativeSVG from '../assets/icons/reactNative.svg';
@@ -25,7 +26,6 @@ import cuboPNG from '../assets/icons/cubo.svg';
 import mesaSVG from '../assets/icons/mesa.svg';
 
 import TaliaIMG from '../assets/Talia-foto.png';
-import CurriculoPDF from '../assets/Talia Pacheco Curriculo .pdf';
 import ProjectsSection from '../components/ProjectsSection';
 import SkillsSection from '../components/SkillsSection';
 import ProjectModal from '../components/ProjectModal';
@@ -34,11 +34,13 @@ import WorkFlowSection from '../components/WorkFlowSection';
 import WorkFlowRefund from '../components/WorkFlowRefund';
 import WorkFlowRestaurante from '../components/WorkFlowRestaurant';
 import ContactSection from '../components/ContactSection';
+import CVDownloadButton from '../components/CVDownloadButton';
 import climaImg from '../assets/images/climaImg.png';
 import reembolsoImg from '../assets/images/reembolso.jpg';
 import mesaImg from '../assets/images/mesa.jpg';
 
 export default function Home() {
+  const { t } = useTranslation();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const navigate = useNavigate();
@@ -46,32 +48,25 @@ export default function Home() {
   const openContactModal = () => setIsContactModalOpen(true);
   const closeContactModal = () => setIsContactModalOpen(false);
 
-  const handleDownloadCurriculo = () => {
-    const link = document.createElement('a');
-      link.href = CurriculoPDF;
-      link.download = 'Talia_Pacheco_Curriculo.pdf';
-      link.click();
-  };
-
   const projectsData = [
     {
       id: 1,
       icon: climaSVG,
-      title: "Monitoramento Meteorológico",
-      description: "Aplicação para monitoramento de condições climáticas em tempo real.",
+      titleKey: 'projects.monitoringTitle',
+      descKey: 'projects.monitoringDesc',
       alt: "monitoramento meteorológico",
       details: "Aplicação completa para monitoramento de condições climáticas em tempo real com dashboard interativo.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "API Weather"],
       features: ["Previsão de 7 dias", "Gráficos em tempo real", "Alertas de clima", "Múltiplas cidades"],
       image: climaImg,
-      link: "https://github.com/TaliaPacheco/desafio-gdash-2025-02",
+      link: "https://github.com/TaliaPacheco/Monitoramento-meteorol-gico",
       WorkFlow: <WorkFlowSection />
     },
     {
       id: 2,
       icon: carteiraSVG,
-      title: "Sistema de Reembolso",
-      description: "Sistema para gerenciamento de reembolsos com interface intuitiva.",
+      titleKey: 'projects.refundTitle',
+      descKey: 'projects.refundDesc',
       alt: "Sistema de Reembolso",
       details: "Sistema completo de gerenciamento de reembolsos com aprovação em múltiplos níveis.",
       technologies: ["React", "Node.js", "PostgreSQL", "Express.js"],
@@ -83,8 +78,8 @@ export default function Home() {
     {
       id: 3,
       icon: mesaSVG,
-      title: "API Restaurante",
-      description: "API de gerenciamento de pedidos de mesas de um restaurante",
+      titleKey: 'projects.restaurantTitle',
+      descKey: 'projects.restaurantDesc',
       alt: "API Restaurante",
       details: "API REST completa para gerenciamento de pedidos e mesas de um restaurante.",
       technologies: ["Node.js", "Express.js", "PostgreSQL", "JWT"],
@@ -95,9 +90,16 @@ export default function Home() {
     }
   ];
 
-  const handleProjectClick = (projectTitle: string) => {
-    const project = projectsData.find(p => p.title === projectTitle);
-    setSelectedProject(project);
+  const handleProjectClick = (projectId: number) => {
+    const project = projectsData.find(p => p.id === projectId);
+    if (project) {
+      const projectWithTranslatedTitle = {
+        ...project,
+        title: t(project.titleKey),
+        description: t(project.descKey)
+      };
+      setSelectedProject(projectWithTranslatedTitle);
+    }
   };
 
   return (
@@ -110,24 +112,24 @@ export default function Home() {
           </div>
           
           <nav className="nav-links">
-            <a href="#habilidades">Habilidades</a>
-            <a href="#Projetos">Projetos</a>
-            <a href="#contato" onClick={(e) => { e.preventDefault(); openContactModal(); }}>Contato</a>
+            <a href="#habilidades">{t('navbar.skills')}</a>
+            <a href="#Projetos">{t('navbar.projects')}</a>
+            <a href="#contato" onClick={(e) => { e.preventDefault(); openContactModal(); }}>{t('navbar.contact')}</a>
           </nav>
 
-          <button className="cta-button" onClick={openContactModal}>Entrar em contato</button>
+          <button className="cta-button" onClick={openContactModal}>{t('navbar.cta')}</button>
         </div>
       </header>
 
       <section className="hero">
         <div className="hero-content">
-          <h1>Olá, eu sou <br/>Talia Pacheco</h1>
-          <p>Desenvolvedora Full-Stack transformando ideias em realidade digital.</p>
+          <h1>{t('hero.greeting')} <br/>{t('hero.name')}</h1>
+          <p>{t('hero.subtitle')}</p>
           
           <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={handleDownloadCurriculo}>Baixar Currículo</button>
-            <button className="btn btn-primary" onClick={() => navigate('/projects')}>Ver projetos</button>
-            <button className="btn btn-secondary" onClick={openContactModal}>Fale Comigo</button>
+            <CVDownloadButton />
+            <button className="btn btn-primary" onClick={() => navigate('/projects')}>{t('hero.viewProjects')}</button>
+            <button className="btn btn-secondary" onClick={openContactModal}>{t('hero.talkWithMe')}</button>
           </div>
         </div>
 
@@ -141,10 +143,10 @@ export default function Home() {
 
     <SkillsSection
       filterButtons={[
-        { label: "⚡ Frontend", category: "frontend" },
-        { label: "🗄️ Backend", category: "backend" },
-        { label: "🗄️ Databases", category: "databases" },
-        { label: "🛠️ Ferramentas ", category: "Ferramentas" },
+        { label: t('skills.frontend'), category: "frontend" },
+        { label: t('skills.backend'), category: "backend" },
+        { label: t('skills.databases'), category: "databases" },
+        { label: t('skills.tools'), category: "Ferramentas" },
       ]}
       skills={[
         {
@@ -275,27 +277,28 @@ export default function Home() {
       projects={[
         {
           icon: climaSVG,
-          title: "Monitoramento Meteorológico",
-          description: "Aplicação para monitoramento de condições climáticas em tempo real.",
+          title: t('projects.monitoringTitle'),
+          description: t('projects.monitoringDesc'),
           alt: "monitoramento meteorológico",
-          onClick: () => handleProjectClick("Monitoramento Meteorológico")
+          onClick: () => handleProjectClick(1)
         },
         {
           icon: carteiraSVG,
-          title: "Sistema de Reembolso",
-          description: "Sistema para gerenciamento de reembolsos com interface intuitiva.",
+          title: t('projects.refundTitle'),
+          description: t('projects.refundDesc'),
           alt: "Sistema de Reembolso",
-          onClick: () => handleProjectClick("Sistema de Reembolso")
+          onClick: () => handleProjectClick(2)
         },
         {
           icon: mesaSVG,
-          title: "API Restaurante",
-          description: "API de gerenciamento de pedidos de mesas de um restaurante",
+          title: t('projects.restaurantTitle'),
+          description: t('projects.restaurantDesc'),
           alt: "API Restaurante",
-          onClick: () => handleProjectClick("API Restaurante")
+          onClick: () => handleProjectClick(3)
         },
         {
-          title: "VER MAIS PROJETOS",
+          title: t('projects.viewMore'),
+          isMoreProjects: true,
         },
       ]}
     />      
@@ -312,7 +315,7 @@ export default function Home() {
           </a>
         </div>
         <div className="footer-content">
-          <p>&copy;  Feito com carinho por Talia Pacheco em 2025.</p>
+          <p>&copy; {t('footer.copyright')}</p>
         </div>
       </footer> 
 

@@ -1,5 +1,6 @@
 import ProjectCard from './ProjectCard';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 interface Project {
   icon?: string;
@@ -7,6 +8,7 @@ interface Project {
   description?: string;
   alt?: string;
   onClick?: () => void;
+  isMoreProjects?: boolean;
 }
 
 
@@ -15,11 +17,12 @@ interface ProjectsSectionProps {
 }
 
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   
   return (
     <section className="projects" id="Projetos">
-      <h2>Meus projetos</h2>
+      <h2>{t('projects.title')}</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
           <ProjectCard
@@ -28,7 +31,8 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             title={project.title}
             description={project.description}
             alt={project.alt}
-            onClick={project.title === "VER MAIS PROJETOS" ? () => navigate('/projects') : project.onClick}
+            isMoreProjects={project.isMoreProjects}
+            onClick={project.isMoreProjects ? () => navigate('/projects') : project.onClick}
           />
         ))}
       </div>

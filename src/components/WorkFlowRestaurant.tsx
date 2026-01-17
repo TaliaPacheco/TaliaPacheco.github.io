@@ -1,10 +1,13 @@
 import maletaSVG from '../assets/icons/maleta.svg';
+import { useTranslation } from 'react-i18next';
 import { RestaurantDoc } from '../Base'
 import type { WorkFlowSectionProps, APIEndpoint } from '../types/workflow';
 
 const restaurantDoc = RestaurantDoc as Record<string, APIEndpoint[]>;
 
 export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) {
+
+  const { t } = useTranslation();
 
   if (!workflow) return null;
 
@@ -37,7 +40,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
               fontSize: isMobile ? "1.3rem" : "2rem",
               fontWeight: 600,
             }}
-          >Fluxo de Trabalho do Projeto</h2>
+          >{t('workflow.restaurant.workflowTitle')}</h2>
         </div>
         <ul
           style={{
@@ -47,11 +50,11 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
             lineHeight: "1.5"
           }}
         >
-          <li> Gestão completa de Produtos, Mesas e Pedidos.</li>
-          <li> Validação de dados com Zod.</li>
-          <li> Tratamento de erros personalizado com AppError.</li>
-          <li> Migrações e seeds de banco de dados com Knex.</li>
-          <li> Endpoints RESTful bem definidos.</li>
+          <li>{t('workflow.restaurant.step1')}</li>
+          <li>{t('workflow.restaurant.step2')}</li>
+          <li>{t('workflow.restaurant.step3')}</li>
+          <li>{t('workflow.restaurant.step4')}</li>
+          <li>{t('workflow.restaurant.step5')}</li>
         </ul>
       </div>
 
@@ -70,7 +73,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
             padding: "20px 0 20px 15px"
           }}
         >
-          API Endpoints:
+          {t('workflow.apiEndpoints')}
         </h2>
         {
           Object.entries(restaurantDoc).map(([GroupName, GroupItens]) => {

@@ -1,0 +1,124 @@
+{
+  "common": {
+    "language": "English",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "navbar": {
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "cta": "Get in touch",
+    "backHome": "Back to home"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Talia Pacheco",
+    "subtitle": "Full-Stack Developer transforming ideas into digital reality.",
+    "downloadCV": "Download Resume",
+    "downloadCVPortuguese": "Resume in Portuguese",
+    "downloadCVEnglish": "Resume in English",
+    "viewProjects": "View projects",
+    "talkWithMe": "Talk with me"
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "subtitle": "Technologies I work with to create modern digital solutions.",
+    "frontend": "⚡ Frontend",
+    "backend": "🗄️ Backend",
+    "databases": "🗄️ Databases",
+    "tools": "🛠️ Tools"
+  },
+  "projects": {
+    "title": "My Projects",
+    "viewMore": "VIEW MORE PROJECTS",
+    "pageDescription": "A selection of projects that demonstrate my skills in web development, design and technology.",
+    "clickToLearn": "Click to learn more.",
+    "monitoringTitle": "Weather Monitoring",
+    "monitoringDesc": "Application for monitoring weather conditions in real-time.",
+    "monitoringDetails": "Real-time weather monitoring system with modern microservices architecture, integrating weather data, AI analysis and gamified recommendations with Pokémon.",
+    "refundTitle": "Refund System",
+    "refundDesc": "System for managing refunds with an intuitive interface.",
+    "refundDetails": "A React + Vite project developed for educational purposes and development practice. The system demonstrates good practices in code organization, componentization and modern styling with TailwindCSS. The project was structured to be scalable and easy to maintain, with a clear separation between reusable components, pages, routes and utilities.",
+    "restaurantTitle": "Restaurant API",
+    "restaurantDesc": "API for managing table orders in a restaurant",
+    "restaurantDetails": "Order management API for a restaurant, developed with Node.js, Express and SQLite. The project implements a robust architecture with clear separation of responsibilities, including controllers, middlewares, routes and utilities. The API offers complete functionalities for managing products, tables, table sessions and orders, with data validation using Zod and custom error handling.",
+    "coursesTitle": "Course Management",
+    "coursesDesc": "Click to learn more.",
+    "coursesDetails": "A REST API developed with Node.js and TypeScript for complete course and module management. The project uses Knex as a query builder for SQLite3 operations, demonstrating best practices in backend development with robust architecture, separation of responsibilities and well-documented endpoints for CRUD operations on courses and modules.",
+    "ticketsTitle": "Support Tickets",
+    "ticketsDesc": "Click to learn more.",
+    "ticketsDetails": "A simple API in Node.js for managing support tickets. This project was created as a study to practice Node.js and RESTful API concepts.",
+    "moreProjectsTitle": "View More Projects",
+    "moreProjectsDesc": "Access my GitHub",
+    "technologies": "Technologies Used:",
+    "aboutProject": "About the project",
+    "viewFullProject": "View Full Project"
+  },
+  "workflow": {
+    "title": "Project Workflow",
+    "apiEndpoints": "API Endpoints:",
+    "workflowSection": {
+      "workflow": "Workflow",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "collector": "Collector",
+      "messageBroker": "Message Broker",
+      "worker": "Worker",
+      "api": "API",
+      "database": "Database"
+    },
+    "refund": {
+      "workflowTitle": "Project Workflow",
+      "step1": "The employee accesses the system and fills out the refund form.",
+      "step2": "The system validates the entered data and sends it for manager approval.",
+      "step3": "The manager reviews the request and approves or rejects the refund.",
+      "step4": "If approved, the finance department processes the payment to the employee.",
+      "step5": "The employee is notified about the refund status.",
+      "loginScreen": "Login Screen:",
+      "managerScreen": "Manager Screen:",
+      "employeeScreen": "Employee Screen:"
+    },
+    "restaurant": {
+      "workflowTitle": "Project Workflow",
+      "step1": "Complete management of Products, Tables and Orders.",
+      "step2": "Data validation with Zod.",
+      "step3": "Custom error handling with AppError.",
+      "step4": "Database migrations and seeds with Knex.",
+      "step5": "Well-defined RESTful endpoints."
+    }
+  },
+  "interface": {
+    "technologiesTitle": "Technologies",
+    "frontendStack": "React ● Vite ● Tailwind ● shadcn/ui",
+    "connectedToNest": "● Connected to Nest",
+    "builtWith": "The interface was built with the following technologies:"
+  },
+  "contact": {
+    "title": "Let's build something",
+    "subtitle": "together?",
+    "description": "I'm available for new projects and collaborations. Feel free to send me a message.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "name": "Your name",
+    "namePlaceholder": "Enter your full name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your.email@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Type your message here",
+    "send": "Send",
+    "sending": "Sending...",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "Error sending message. Check your Google Sheets configuration."
+  },
+  "footer": {
+    "copyright": "Made with love by Talia Pacheco in 2025."
+  },
+  "proficiency": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import SkillCard from './SkillCard';
 
 interface Skill {
@@ -16,6 +17,7 @@ interface SkillsSectionProps {
 }
 
 export default function SkillsSection({ skills, filterButtons }: SkillsSectionProps) {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const filteredSkills = selectedCategory
@@ -25,8 +27,8 @@ export default function SkillsSection({ skills, filterButtons }: SkillsSectionPr
   return (
     <section className="habilidades-section" id="habilidades">
       <div className="habilidades-container">
-        <h2>Habilidades & Tecnologias</h2>
-        <p className="section-subtitle">Tecnologias com as quais trabalho para criar soluções digitais modernas.</p>
+        <h2>{t('skills.title')}</h2>
+        <p className="section-subtitle">{t('skills.subtitle')}</p>
         
         {filterButtons && (
           <div className="filter-buttons">

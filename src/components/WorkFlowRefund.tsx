@@ -1,4 +1,5 @@
 import maletaSVG from '../assets/icons/maleta.svg';
+import { useTranslation } from 'react-i18next';
 
 import loginIMG from '../assets/Tela-login.png'
 import managerIMG from '../assets/Tela-manager.png'
@@ -9,6 +10,7 @@ interface WorkFlowSectionProps {
 }
 
 export default function WorkFlowRefund({ workflow }: WorkFlowSectionProps) {
+  const { t } = useTranslation();
 
   if (!workflow) return null;
 
@@ -41,7 +43,7 @@ export default function WorkFlowRefund({ workflow }: WorkFlowSectionProps) {
                 fontSize: isMobile ? "1.3rem" : "2rem", 
                 fontWeight: 600,  
                 }}
-              >Fluxo de Trabalho do Projeto</h2>
+              >{t('workflow.refund.workflowTitle')}</h2>
           </div>
         <ul 
           style={{
@@ -51,11 +53,11 @@ export default function WorkFlowRefund({ workflow }: WorkFlowSectionProps) {
             lineHeight: "1.5"
           }}
         >
-          <li> O funcionário acessa o sistema e preenche o formulário de reembolso.</li>
-          <li> O sistema valida os dados inseridos e envia para aprovação do gerente.</li>
-          <li> O gerente revisa o pedido e aprova ou rejeita o reembolso.</li>
-          <li> Se aprovado, o departamento financeiro processa o pagamento ao funcionário.</li>
-          <li> O funcionário é notificado sobre o status do reembolso.</li>
+          <li>{t('workflow.refund.step1')}</li>
+          <li>{t('workflow.refund.step2')}</li>
+          <li>{t('workflow.refund.step3')}</li>
+          <li>{t('workflow.refund.step4')}</li>
+          <li>{t('workflow.refund.step5')}</li>
         </ul>
       </div>
 
@@ -85,7 +87,7 @@ export default function WorkFlowRefund({ workflow }: WorkFlowSectionProps) {
               style={{
                 padding: "15px 0",
                 color: "#C5A7FC",
-              }}>Tela de login:</h2>
+              }}>{t('workflow.refund.loginScreen')}</h2>
             <div style={{
               display: "flex",
               justifyContent: "center",
@@ -125,7 +127,7 @@ export default function WorkFlowRefund({ workflow }: WorkFlowSectionProps) {
               style={{
                 padding: "15px 0",
                 color: "#C5A7FC",
-              }}>Tela Manager:</h2>
+              }}>{t('workflow.refund.managerScreen')}</h2>
             <div style={{
               display: "flex",
               justifyContent: "center",
@@ -164,7 +166,7 @@ export default function WorkFlowRefund({ workflow }: WorkFlowSectionProps) {
               style={{
                 padding: "15px 0",
                 color: "#C5A7FC",
-              }}>Tela Employee:</h2>
+              }}>{t('workflow.refund.employeeScreen')}</h2>
             <div style={{
               display: "flex",
               justifyContent: "center",

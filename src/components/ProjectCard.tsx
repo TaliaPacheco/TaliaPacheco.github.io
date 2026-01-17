@@ -5,11 +5,10 @@ interface ProjectCardProps {
   alt?: string;
   onClick?: () => void;
   isGitHubLink?: boolean;
+  isMoreProjects?: boolean;
 }
 
-export default function ProjectCard({ icon, title, description, alt, onClick }: ProjectCardProps) {
-  const isMoreProjects = title === "VER MAIS PROJETOS";
-  
+export default function ProjectCard({ icon, title, description, alt, onClick, isMoreProjects = false }: ProjectCardProps) {
   const handleClick = () => {
     if (onClick) {
       onClick();

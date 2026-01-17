@@ -3,6 +3,7 @@ import '../styles/ProjectModal.css';
 
 import { useNavigate } from 'react-router-dom';
 import {  useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import climaSVG from '../assets/icons/clima.svg';
 import carteiraSVG from '../assets/icons/carteira.svg';
@@ -44,6 +45,7 @@ interface Project {
 }
 
 export default function Projects() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,10 +54,10 @@ export default function Projects() {
     {
       id: 1,
       icon: climaSVG,
-      title: "Monitoramento Meteorológico",
-      description: "Clique para entender mais.",
+      title: t('projects.monitoringTitle'),
+      description: t('projects.clickToLearn'),
       alt: "monitoramento meteorológico",
-      details: "Sistema de monitoramento meteorológico em tempo real com arquitetura moderna de microsserviços, integrando dados climáticos, análise com IA e recomendações gamificadas com Pokémon.",
+      details: t('projects.monitoringDetails'),
       technologies: ["React", "TypeScript", "Vite", "TailwindCSS", "Leaflet", "NestJS", "Go", "Python", "RabbitMQ", "MongoDB", "Docker", "OpenAI"],
       link: "https://github.com/TaliaPacheco/Monitoramento-meteorol-gico",
       image: climaImg,
@@ -64,10 +66,10 @@ export default function Projects() {
     {
       id: 2,
       icon: carteiraSVG,
-      title: "Sistema de Reembolso",
-      description: "Clique para entender mais.",
+      title: t('projects.refundTitle'),
+      description: t('projects.clickToLearn'),
       alt: "Sistema de Reembolso",
-      details: "Um projeto React + Vite desenvolvido para fins educacionais e prática de desenvolvimento. O sistema demonstra boas práticas de organização de código, componentização e estilização moderna com TailwindCSS. O projeto foi estruturado para ser escalável e fácil de manter, com uma separação clara entre componentes reutilizáveis, páginas, rotas e utilitários.",
+      details: t('projects.refundDetails'),
       technologies: ["React","Vite", "Typescript", "tailwindCSS"],
       link: "https://github.com/TaliaPacheco/Projeto-Sistema-de-reembolso",
       image: reembolsoJPG,
@@ -76,10 +78,10 @@ export default function Projects() {
     {
       id: 3,
       icon: mesaSVG,
-      title: "API Restaurante",
-      description: "Clique para entender mais.",
+      title: t('projects.restaurantTitle'),
+      description: t('projects.clickToLearn'),
       alt: "API Restaurante",
-      details: "API de gerenciamento de pedidos de mesas de um restaurante, desenvolvida com Node.js, Express e SQLite. O projeto implementa uma arquitetura robusta com separação clara de responsabilidades, incluindo controladores, middlewares, rotas e utilitários. A API oferece funcionalidades completas de gestão de produtos, mesas, sessões de mesa e pedidos, com validação de dados usando Zod e tratamento de erros personalizado.",
+      details: t('projects.restaurantDetails'),
       technologies: ["NodeJS", "Express", "TypeScript", "Knex", "SQLite", "Zod"],
       link: "https://github.com/TaliaPacheco/api-restaurante",
       image: mesaImg,
@@ -89,10 +91,10 @@ export default function Projects() {
     {
       id: 4,
       icon: livroSVG,
-      title: "Gerenciamento de Cursos",
-      description: "Clique para entender mais.",
+      title: t('projects.coursesTitle'),
+      description: t('projects.clickToLearn'),
       alt: "API Gerenciamento de Cursos",
-      details: "Uma API REST desenvolvida com Node.js e TypeScript para gerenciamento completo de cursos e seus módulos. O projeto utiliza Knex como query builder para operações com SQLite3, demonstrando boas práticas de desenvolvimento backend com arquitetura robusta, separação de responsabilidades e endpoints bem documentados para CRUD de cursos e módulos.",
+      details: t('projects.coursesDetails'),
       technologies: ["Node.js", "TypeScript", "Express", "SQLite3", "Knex"],
       link: "https://github.com/TaliaPacheco/api-gerenciamento-cursos",
       image: livroImg,
@@ -101,10 +103,10 @@ export default function Projects() {
     {
       id: 5,
       icon: headSVG,
-      title: "Suport Tickets",
-      description: "Clique para entender mais.",
+      title: t('projects.ticketsTitle'),
+      description: t('projects.clickToLearn'),
       alt: "Api para gerenciamento de tickets",
-      details: "Uma API simples em Node.js para gerenciar tickets de suporte. Este projeto foi criado como um estudo para praticar Node.js e conceitos de APIs RESTful.",
+      details: t('projects.ticketsDetails'),
       technologies: ["Node.js", "Módulo nativo HTTP", "Sistema de arquivos (File System) para persistência de dados"],
       link: "https://github.com/TaliaPacheco/suport-tickets",
       image: FoneImg,
@@ -113,8 +115,8 @@ export default function Projects() {
     {
       id: 6,
       icon: githubSVG,
-      title: "Ver Mais Projetos",
-      description: "Acesse meu GitHub",
+      title: t('projects.moreProjectsTitle'),
+      description: t('projects.moreProjectsDesc'),
       alt: "GitHub",
       details: "Acesse meu perfil no GitHub para ver mais projetos",
       link: "https://github.com/TaliaPacheco",
@@ -146,14 +148,14 @@ export default function Projects() {
 
           <nav className="nav-links">
           </nav>
-          <button className="cta-button" onClick={() => navigate('/')}>Voltar a home</button>
+          <button className="cta-button" onClick={() => navigate('/')}>{t('navbar.backHome') || 'Voltar a home'}</button>
         </div>
       </header>
 
       <section className="projects-full" id="Projetos">
         <div className="projects-header">
-          <h1>Meus Projetos</h1>
-          <p>Uma seleção de projetos que demonstram minhas habilidades em desenvolvimento web, design e tecnologia.</p>
+          <h1>{t('projects.title')}</h1>
+          <p>{t('projects.pageDescription') || 'Uma seleção de projetos que demonstram minhas habilidades em desenvolvimento web, design e tecnologia.'}</p>
         </div>
         
         <div className="projects-grid-full">
@@ -187,7 +189,7 @@ export default function Projects() {
           </a>
         </div>
         <div className="footer-content">
-          <p>&copy;  Feito com carinho por Talia Pacheco em 2025.</p>
+          <p>&copy; {t('footer.copyright')}</p>
         </div>
       </footer>
     </div>
