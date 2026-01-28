@@ -1,7 +1,3 @@
-/**
- * Tipos para os workflows de projetos
- */
-
 export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'OPTIONS';
 
 export interface APIEndpoint {

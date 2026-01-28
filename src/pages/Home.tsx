@@ -54,8 +54,8 @@ export default function Home() {
       icon: climaSVG,
       titleKey: 'projects.monitoringTitle',
       descKey: 'projects.monitoringDesc',
+      detailsKey: 'projects.monitoringDetails',
       alt: "monitoramento meteorológico",
-      details: "Aplicação completa para monitoramento de condições climáticas em tempo real com dashboard interativo.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "API Weather"],
       features: ["Previsão de 7 dias", "Gráficos em tempo real", "Alertas de clima", "Múltiplas cidades"],
       image: climaImg,
@@ -67,8 +67,8 @@ export default function Home() {
       icon: carteiraSVG,
       titleKey: 'projects.refundTitle',
       descKey: 'projects.refundDesc',
+      detailsKey: 'projects.refundDetails',
       alt: "Sistema de Reembolso",
-      details: "Sistema completo de gerenciamento de reembolsos com aprovação em múltiplos níveis.",
       technologies: ["React", "Node.js", "PostgreSQL", "Express.js"],
       features: ["Fluxo de aprovação", "Relatórios", "Integração com banco de dados", "Notificações"],
       image: reembolsoImg,
@@ -80,8 +80,8 @@ export default function Home() {
       icon: mesaSVG,
       titleKey: 'projects.restaurantTitle',
       descKey: 'projects.restaurantDesc',
+      detailsKey: 'projects.restaurantDetails',
       alt: "API Restaurante",
-      details: "API REST completa para gerenciamento de pedidos e mesas de um restaurante.",
       technologies: ["Node.js", "Express.js", "PostgreSQL", "JWT"],
       features: ["Gerenciamento de mesas", "Pedidos em tempo real", "Autenticação segura", "Relatórios"],
       image: mesaImg,
@@ -96,7 +96,8 @@ export default function Home() {
       const projectWithTranslatedTitle = {
         ...project,
         title: t(project.titleKey),
-        description: t(project.descKey)
+        description: t(project.descKey),
+        details: t(project.detailsKey)
       };
       setSelectedProject(projectWithTranslatedTitle);
     }
