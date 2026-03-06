@@ -46,7 +46,7 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <div
                         style={{
-                          backgroundColor: "#fca6ec ",
+                          backgroundColor: "#fca6ec",
                           height: 25,
                           width: "5px",
                           borderRadius: 3,
@@ -67,7 +67,7 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
                         width: "100%",
                         gap: 8,
                         padding: isMobile ? "0" : "10px",
-                        
+
                       }}
                     >
                       {GroupItens.map((Item: APIEndpoint) => (
@@ -76,7 +76,7 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
                             width: "100%",
                             minHeight: isMobile ? "auto" : 80,
                             borderRadius: 20,
-                            backgroundColor: "#F0F0F010",
+                            backgroundColor: "var(--workflow-item-bg)",
                             display: 'flex',
                             flexDirection: isMobile ? 'column' : 'row',
                             alignItems: isMobile ? "flex-start" : "center",
@@ -93,12 +93,12 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
                           >
                             <div
                               style={{
-                                backgroundColor: "#C5A7FC20",
+                                backgroundColor: "var(--workflow-method-bg)",
                                 width: 'fit-content',
                                 padding: 8,
                                 borderRadius: 10,
-                                border: "1px solid #362752",
-                                color: "#C5A7FC",
+                                border: "1px solid var(--workflow-method-border)",
+                                color: "var(--workflow-accent)",
                                 fontWeight: "bold",
                                 fontSize: isMobile ? "0.85rem" : "1rem"
                               }}
@@ -113,7 +113,7 @@ export default function WorkFlowTickets({ workflow }: WorkFlowSectionProps) {
                           >
                             <p style={{ fontWeight: "400", fontSize: isMobile ? "0.95rem" : "1.2rem",  marginBottom: 4 }}>{Item.route}</p>
                             <p style={{ fontSize: isMobile ? "0.85rem" : "1rem", fontWeight: "200", }}>{Item.description}</p>
-    
+
                           </div>
                         </div>
                       ))}
