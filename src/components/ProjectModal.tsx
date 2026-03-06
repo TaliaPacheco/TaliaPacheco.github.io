@@ -33,10 +33,10 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
     if (!isOpen || !project) return null;
 
     const isMobile = window.innerWidth <= 768;
-    
+
 
     return (
-        <div 
+        <div
             style={{
                 flex:1,
                 backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -56,7 +56,7 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                 style={{
 
                     position: "relative",
-                    background: "linear-gradient(135deg, #1a1f2e 0%, #2d1b4e 100%)",
+                    background: "var(--modal-bg)",
                     height: isMobile ? "90vh" : "70vh",
                     width: isMobile ? "95vw" : "70vw",
                     borderRadius: 20,
@@ -71,9 +71,9 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                 }}
             >
                 {project.link && (
-                    <a 
-                        href={project.link} 
-                        target="_blank" 
+                    <a
+                        href={project.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="project-action-button"
                         style={{
@@ -114,42 +114,42 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                         }}
                     >
 
-                        <h1 style={{fontSize: isMobile ? "28px" : "48px", marginBottom: 16}}> {project.title} </h1>
+                        <h1 style={{fontSize: isMobile ? "28px" : "48px", marginBottom: 16, color: "var(--text-primary)"}}> {project.title} </h1>
                     </div>
                     <div
-                       
+
                         style={{
                             width: isMobile ? "100%" : "98%",
                             height: "72.5%",
                             overflowY: "auto",
                             padding: isMobile ? "15px" : "19px",
                             marginLeft: isMobile ? "0" : "10px",
-                            boxShadow: "inset 0 -15px 15px 0 rgba(0, 0, 0, 0.199)",
+                            boxShadow: "var(--modal-inset-shadow)",
                             zIndex: 100000
 
                         }}
                     >
-                        <h3 style={{fontSize: isMobile ? "14px" : "18px", 
-                                fontWeight: "normal", 
-                                color: "#fca6ec", 
-                                marginBottom: "20px", 
+                        <h3 style={{fontSize: isMobile ? "14px" : "18px",
+                                fontWeight: "normal",
+                                color: "#fca6ec",
+                                marginBottom: "20px",
                                 marginLeft: isMobile ? "0" : "10px"}}>
                                     {t('projects.technologies')}
                         </h3>
-                        <div style={{ display: "flex", 
-                            flexWrap: "wrap", 
-                            gap: isMobile ? "6px" : "8px", 
+                        <div style={{ display: "flex",
+                            flexWrap: "wrap",
+                            gap: isMobile ? "6px" : "8px",
                             marginLeft: isMobile ? "0" : "15px"
                             }}>
                             {project.technologies?.map((tech, index) => (
-                                        <span 
+                                        <span
                                             key={index}
                                             style={{
-                                                backgroundColor: "#362752",
-                                                color: "#ffffff",
+                                                backgroundColor: "var(--workflow-card-bg)",
+                                                color: "var(--text-primary)",
                                                 padding: isMobile ? "4px 8px" : "6px 12px",
                                                 borderRadius: "50px",
-                                                border: "1px solid #C5A7FC",
+                                                border: "1px solid var(--workflow-accent)",
                                                 fontSize: isMobile ? "10px" : "12px",
                                                 fontWeight: "bold"
                                             }}
@@ -160,19 +160,20 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                         </div>
                             <div style={{ padding: isMobile ? "15px 0" : "30px" }}>
                                 <div style={{display: "flex", alignItems: "center"}}>
-                                    <img style={{ 
-                                        width: isMobile ? "24px" : "30px", 
-                                        height: isMobile ? "24px" : "10%", 
-                                        marginRight: "8px" 
+                                    <img style={{
+                                        width: isMobile ? "24px" : "30px",
+                                        height: isMobile ? "24px" : "10%",
+                                        marginRight: "8px",
+                                        filter: "var(--icon-filter)"
                                         }}
-                                         src={arquivoSVG} alt="icone de arquivo" 
+                                         src={arquivoSVG} alt="icone de arquivo"
                                     />
-                                    <h2 style={{ fontSize: isMobile ? "1.3rem" : "2rem", fontWeight: 700,  marginBottom: "0px" }}>{t('projects.aboutProject')}</h2>
+                                    <h2 style={{ fontSize: isMobile ? "1.3rem" : "2rem", fontWeight: 700,  marginBottom: "0px", color: "var(--text-primary)" }}>{t('projects.aboutProject')}</h2>
                                 </div>
-                                <p 
+                                <p
                                     style=
-                                        {{color: "#ffffff", 
-                                        fontSize: isMobile ? "0.95rem" : "1.2rem", 
+                                        {{color: "var(--text-primary)",
+                                        fontSize: isMobile ? "0.95rem" : "1.2rem",
                                         marginLeft: isMobile ? "0" : "10px",
                                         marginTop: "12px",
                                         padding: isMobile ? "0" : "6px 12px",
@@ -188,9 +189,9 @@ export default function ProjectModal({ isOpen, project, onClose, }: ProjectModal
                             {project.id === 4 && <WorkFlowCursos workflow={project.WorkFlow} />}
                             {project.id === 5 && <WorkFlowTickets workflow={project.WorkFlow} />}
                     </div>
-                    
+
                 </div>
-                
+
                <button className="close-button" onClick={onClose}>×</button>
             </div>
         </div>

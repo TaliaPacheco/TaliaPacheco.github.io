@@ -18,7 +18,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        color: 'white',
+        color: 'var(--text-primary)',
         padding: isMobile ? "15px 0" : "30px",
       }}
       >
@@ -31,7 +31,8 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
           <img style={{
             width: isMobile ? "23px" : "29px",
             height: isMobile ? "24px" : "15%",
-            flex: "start"
+            flex: "start",
+            filter: "var(--icon-filter)"
           }}
             src={maletaSVG} alt="icone de maleta"
           />
@@ -90,7 +91,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <div
                     style={{
-                      backgroundColor: "#fca6ec ",
+                      backgroundColor: "#fca6ec",
                       height: 25,
                       width: "5px",
                       borderRadius: 3,
@@ -111,7 +112,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
                     width: "100%",
                     gap: 8,
                     padding: isMobile ? "0" : "10px",
-                    
+
                   }}
                 >
                   {GroupItens.map((Item: APIEndpoint) => (
@@ -120,7 +121,7 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
                         width: "100%",
                         minHeight: isMobile ? "auto" : 80,
                         borderRadius: 20,
-                        backgroundColor: "#F0F0F010",
+                        backgroundColor: "var(--workflow-item-bg)",
                         display: 'flex',
                         flexDirection: isMobile ? 'column' : 'row',
                         alignItems: isMobile ? "flex-start" : "center",
@@ -137,12 +138,12 @@ export default function WorkFlowRestaurante({ workflow }: WorkFlowSectionProps) 
                       >
                         <div
                           style={{
-                            backgroundColor: "#C5A7FC20",
+                            backgroundColor: "var(--workflow-method-bg)",
                             width: 'fit-content',
                             padding: 8,
                             borderRadius: 10,
-                            border: "1px solid #362752",
-                            color: "#C5A7FC",
+                            border: "1px solid var(--workflow-method-border)",
+                            color: "var(--workflow-accent)",
                             fontWeight: "bold",
                             fontSize: isMobile ? "0.85rem" : "1rem"
                           }}

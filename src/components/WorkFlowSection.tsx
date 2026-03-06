@@ -28,25 +28,25 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
       <div style={{ display: "flex", marginBottom: "20px" }}>
         <h2 style={{ fontSize: isMobile ? "1.5rem" : "2rem", fontWeight: 700 }}>{t('workflow.workflowSection.workflow')}</h2>
       </div>
-        <div 
-            style={{ 
+        <div
+            style={{
                 width: "100%",
                 height: isMobile ? "auto" : "360px",
-                border: "1px solid #C5A7FC",
+                border: "1px solid var(--workflow-accent)",
                 borderRadius: "8px",
-                justifyContent: "center", 
+                justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "#362752",
+                backgroundColor: "var(--workflow-card-bg)",
                 overflow: "hidden",
                 minHeight: isMobile ? "auto" : undefined
                 }}
         >
-            <h2 
-                style={{ 
+            <h2
+                style={{
                     padding: "25px",
-                    fontSize: "1.5rem", 
-                    fontWeight: "bold", 
-                    color: "#C5A7FC" 
+                    fontSize: "1.5rem",
+                    fontWeight: "bold",
+                    color: "var(--workflow-accent)"
                 }}
             >
                 {t('workflow.workflowSection.backend')}
@@ -73,158 +73,158 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                         flexWrap: isMobile ? "wrap" : "nowrap"
                     }}
                 >
-                    <div 
-                        style={{ 
-                            display: "flex", 
+                    <div
+                        style={{
+                            display: "flex",
                             flexDirection: "column",
-                            justifyContent: "center", 
-                            alignItems: "center", 
-                            gap: "8px"
-                        }}  
-                    >
-                    <div 
-                        style={{ 
-                            display: "flex", 
-                            justifyContent: "center", 
-                            alignItems: "center", 
-                            width: "65px", 
-                            height: "65px", 
-                            borderRadius: "50%", 
-                            backgroundColor: "#4A3F63" 
-                        }}  
-                    >
-                        <img src={pythonSVG} alt="" 
-                        style={{ 
-                            width: "40px", 
-                            height: "40px" 
-                        }}  
-                        />
-                    </div>
-                    <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>Python</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.collector')}</p>
-                    </div>
-
-                    <p style={{ display: "flex", alignItems: "center", marginTop: isMobile ? "0" : "20px", fontSize: isMobile ? "1.5rem" : "1rem", transform: isMobile ? "rotate(90deg)" : "none" }}>⟶</p>
-                    <div 
-                        style={{ 
-                            display: "flex", 
-                            flexDirection: "column",
-                            justifyContent: "center", 
+                            justifyContent: "center",
                             alignItems: "center",
                             gap: "8px"
                         }}
                     >
-                    <div 
-                        style={{ 
-                            display: "flex", 
-                            justifyContent: "center", 
-                            alignItems: "center", 
-                            width: "65px", 
-                            height: "65px", 
-                            borderRadius: "50%", 
-                            backgroundColor: "#4A3F63" 
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "65px",
+                            height: "65px",
+                            borderRadius: "50%",
+                            backgroundColor: "var(--workflow-icon-bg)"
                         }}
                     >
-                        <img 
-                        src={rabbitmqSVG} alt="" 
-                            style={{ 
-                                width: "40px", 
-                                height: "40px" 
-                            }} 
+                        <img src={pythonSVG} alt=""
+                        style={{
+                            width: "40px",
+                            height: "40px"
+                        }}
                         />
                     </div>
-                    <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>RabbitMQ</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.messageBroker')}</p>
+                    <h3 style={{ fontSize: "14px", color: "var(--workflow-accent)", margin: "0" }}>Python</h3>
+                    <p style={{ fontSize: "12px", color: "var(--workflow-accent)", margin: "0" }}>{t('workflow.workflowSection.collector')}</p>
+                    </div>
+
+                    <p style={{ display: "flex", alignItems: "center", marginTop: isMobile ? "0" : "20px", fontSize: isMobile ? "1.5rem" : "1rem", transform: isMobile ? "rotate(90deg)" : "none" }}>⟶</p>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "8px"
+                        }}
+                    >
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "65px",
+                            height: "65px",
+                            borderRadius: "50%",
+                            backgroundColor: "var(--workflow-icon-bg)"
+                        }}
+                    >
+                        <img
+                        src={rabbitmqSVG} alt=""
+                            style={{
+                                width: "40px",
+                                height: "40px"
+                            }}
+                        />
+                    </div>
+                    <h3 style={{ fontSize: "14px", color: "var(--workflow-accent)", margin: "0" }}>RabbitMQ</h3>
+                    <p style={{ fontSize: "12px", color: "var(--workflow-accent)", margin: "0" }}>{t('workflow.workflowSection.messageBroker')}</p>
                     </div>
                     <p style={{ display: "flex", alignItems: "center", marginTop: isMobile ? "0" : "20px", fontSize: isMobile ? "1.5rem" : "1rem", transform: isMobile ? "rotate(90deg)" : "none" }}>⟶</p>
-                    <div 
-                        style={{ 
-                            display: "flex", 
+                    <div
+                        style={{
+                            display: "flex",
                             flexDirection: "column",
-                            justifyContent: "center", 
+                            justifyContent: "center",
                             alignItems: "center",
                             gap: "8px"
                         }}
                         >
-                    <div 
-                        style={{ 
-                            display: "flex", 
-                            justifyContent: "center", 
-                            alignItems: "center", 
-                            width: "65px", 
-                            height: "65px", 
-                            borderRadius: "50%", 
-                            backgroundColor: "#4A3F63" 
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "65px",
+                            height: "65px",
+                            borderRadius: "50%",
+                            backgroundColor: "var(--workflow-icon-bg)"
                         }}
                     >
                         <img src={goSVG} alt="" style={{ width: "40px", height: "40px" }} />
                     </div>
-                    <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>Go</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.worker')}</p>
+                    <h3 style={{ fontSize: "14px", color: "var(--workflow-accent)", margin: "0" }}>Go</h3>
+                    <p style={{ fontSize: "12px", color: "var(--workflow-accent)", margin: "0" }}>{t('workflow.workflowSection.worker')}</p>
                     </div>
                     <p style={{ display: "flex", alignItems: "center", marginTop: isMobile ? "0" : "20px", fontSize: isMobile ? "1.5rem" : "1rem", transform: isMobile ? "rotate(90deg)" : "none" }}>⟶</p>
-                    <div 
-                        style={{ 
-                            display: "flex", 
+                    <div
+                        style={{
+                            display: "flex",
                             flexDirection: "column",
-                            justifyContent: "center", 
+                            justifyContent: "center",
                             alignItems: "center",
                             gap: "8px"
                         }}
                         >
-                    <div 
-                        style={{ 
-                            display: "flex", 
-                            justifyContent: "center", 
-                            alignItems: "center", 
-                            width: "65px", 
-                            height: "65px", 
-                            borderRadius: "50%", 
-                            backgroundColor: "#4A3F63" 
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "65px",
+                            height: "65px",
+                            borderRadius: "50%",
+                            backgroundColor: "var(--workflow-icon-bg)"
                         }}
                     >
                         <img src={nestSVG} alt="" style={{ width: "40px", height: "40px" }} />
                     </div>
-                    <h3 style={{ fontSize: "14px", color: "#C5A7FC", margin: "0" }}>NestJS</h3>
-                    <p style={{ fontSize: "12px", color: "#C5A7FC", margin: "0" }}>{t('workflow.workflowSection.api')}</p>
+                    <h3 style={{ fontSize: "14px", color: "var(--workflow-accent)", margin: "0" }}>NestJS</h3>
+                    <p style={{ fontSize: "12px", color: "var(--workflow-accent)", margin: "0" }}>{t('workflow.workflowSection.api')}</p>
                     </div>
                 </div>
             </div>
-                <div 
+                <div
                     style={{
-                        display: "flex", 
+                        display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         padding: isMobile ? "15px 0" : "20px 0 20px 0",
                     }}
                 >
-                    <div 
+                    <div
                         style={{
                             opacity: "40%",
                             width: "100%",
                             height: "1px",
-                            borderTop: "2px dashed #C5A7FC",
+                            borderTop: "2px dashed var(--workflow-accent)",
                         }}
                     >
                     </div>
-                </div> 
-                <div 
+                </div>
+                <div
                     style={{
-                       
+
                         opacity: "50%",
-                        display: "flex", 
+                        display: "flex",
                         justifyContent: isMobile ? "center" : "flex-end",
                         alignItems: "center",
                         padding: isMobile ? "15px 15px 15px 15px" : "1px 60px 0px 0px",
                         marginTop: isMobile ? "15px" : "0"
-                    }}    
+                    }}
                 >
                     <div
                         style={{
                             width: isMobile ? "90%" : "30%",
                             height: "50px",
                             borderRadius: "10px",
-                            border: "1px solid #C5A7FC",
+                            border: "1px solid var(--workflow-accent)",
                             overflow: "hidden",
                             display: "flex",
                             alignItems: "center",
@@ -237,35 +237,35 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                             height: "20px",
                             flexShrink: 0
                         }} src={databaseSVG} alt="" />
-                        <p style={{ color: "#C5A7FC", margin: "0", flex: "1" }}>{t('workflow.workflowSection.database')}: <strong>MongoDB</strong></p>
+                        <p style={{ color: "var(--workflow-accent)", margin: "0", flex: "1" }}>{t('workflow.workflowSection.database')}: <strong>MongoDB</strong></p>
                     </div>
                 </div>
-        </div>  
-        <div 
+        </div>
+        <div
             style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "20px 0"
             }}>
-            <span 
-                style={{ 
-                    fontSize: "3rem", 
-                    color: "#C5A7FC",
+            <span
+                style={{
+                    fontSize: "3rem",
+                    color: "var(--workflow-accent)",
                 }}
             >
                 ↓
             </span>
         </div>
 
-        <div 
-            style={{ 
+        <div
+            style={{
                 width: "100%",
                 height: isMobile ? "auto" : "235px",
                 borderRadius: "10px",
-                justifyContent: "center", 
+                justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "#362752",
+                backgroundColor: "var(--workflow-card-bg)",
                 overflow: "hidden",
                 padding: isMobile ? "15px" : "25px"
                 }}
@@ -277,22 +277,22 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                     paddingLeft: isMobile ? "0" : "20px"
                 }}
             >
-                <h2 style={{  
-                        fontSize: isMobile ? "1.2rem" : "1.5rem", 
-                        fontWeight: "bold", 
-                        color: "#C5A7FC",
+                <h2 style={{
+                        fontSize: isMobile ? "1.2rem" : "1.5rem",
+                        fontWeight: "bold",
+                        color: "var(--workflow-accent)",
                         margin: "0"
                     }}
                 >
                     Frontend
-                </h2> 
+                </h2>
                 <p style={{ fontSize: isMobile ? "0.9rem" : "1rem", padding: "10px 0px 10px 0px" }}>{t('interface.builtWith')}</p>
 
-                <div 
+                <div
                     style={{
-                        backgroundColor: "#2d1b4e",
+                        backgroundColor: "var(--card-bg-solid)",
                         height: isMobile ? "auto" : "40%",
-                        border: "1px solid #C5A7FC",
+                        border: "1px solid var(--workflow-accent)",
                         borderRadius: "10px",
                         marginTop: "15px",
                         overflow: "hidden",
@@ -303,7 +303,7 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                         gap: isMobile ? "15px" : "0"
                     }}
                 >
-                    <div 
+                    <div
                         style={{
                             display: "flex",
                             alignItems: "center",
@@ -321,81 +321,81 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                                     style={{
                                         display: "flex",
                                         justifyContent: "center",
-                                        alignItems: "center", 
-                                        width: "35px", 
-                                        height: "35px", 
-                                        borderRadius: "50%", 
-                                        border: "2px solid #2d1b4e",
-                                        backgroundColor: "#4A3F63" 
+                                        alignItems: "center",
+                                        width: "35px",
+                                        height: "35px",
+                                        borderRadius: "50%",
+                                        border: "2px solid var(--card-bg-solid)",
+                                        backgroundColor: "var(--workflow-icon-bg)"
                                     }}
                                 >
-                                    <img src={reactSVG} 
-                                        style={{   
-                                            width: "24px", 
-                                            height: "24px" 
-                                        }} 
+                                    <img src={reactSVG}
+                                        style={{
+                                            width: "24px",
+                                            height: "24px"
+                                        }}
                                         />
                                 </div>
                                 <div
                                     style={{
                                         display: "flex",
                                         justifyContent: "center",
-                                        alignItems: "center", 
-                                        width: "35px", 
-                                        height: "35px", 
-                                        borderRadius: "50%", 
-                                        border: "2px solid #2d1b4e",
-                                        backgroundColor: "#4A3F63" 
+                                        alignItems: "center",
+                                        width: "35px",
+                                        height: "35px",
+                                        borderRadius: "50%",
+                                        border: "2px solid var(--card-bg-solid)",
+                                        backgroundColor: "var(--workflow-icon-bg)"
                                     }}
                                 >
-                                    <img src={viteSVG} 
-                                        style={{   
-                                            width: "24px", 
-                                            height: "24px" 
-                                        }} 
+                                    <img src={viteSVG}
+                                        style={{
+                                            width: "24px",
+                                            height: "24px"
+                                        }}
                                         />
                                 </div>
                                 <div
                                     style={{
                                         display: "flex",
                                         justifyContent: "center",
-                                        alignItems: "center", 
-                                        width: "35px", 
-                                        height: "35px", 
-                                        borderRadius: "50%", 
-                                        border: "2px solid #2d1b4e",
-                                        backgroundColor: "#4A3F63" 
+                                        alignItems: "center",
+                                        width: "35px",
+                                        height: "35px",
+                                        borderRadius: "50%",
+                                        border: "2px solid var(--card-bg-solid)",
+                                        backgroundColor: "var(--workflow-icon-bg)"
                                     }}
                                 >
-                                    <img src={tailwindSVG} 
-                                        style={{   
-                                            width: "24px", 
-                                            height: "24px" 
-                                        }} 
+                                    <img src={tailwindSVG}
+                                        style={{
+                                            width: "24px",
+                                            height: "24px"
+                                        }}
                                         />
                                 </div>
                                  <div
                                     style={{
                                         display: "flex",
                                         justifyContent: "center",
-                                        alignItems: "center", 
-                                        width: "35px", 
-                                        height: "35px", 
-                                        borderRadius: "50%", 
-                                        border: "2px solid #2d1b4e",
-                                        backgroundColor: "#4A3F63" 
+                                        alignItems: "center",
+                                        width: "35px",
+                                        height: "35px",
+                                        borderRadius: "50%",
+                                        border: "2px solid var(--card-bg-solid)",
+                                        backgroundColor: "var(--workflow-icon-bg)"
                                     }}
                                 >
-                                    <img src={shadcnPNG} 
-                                        style={{   
-                                            width: "30px", 
-                                            height: "30px" 
-                                        }} 
+                                    <img src={shadcnPNG}
+                                        style={{
+                                            width: "30px",
+                                            height: "30px"
+                                        }}
                                         />
                                 </div>
                             </div>
                         </div>
-                            
+
                         <div style={{ gap: "8px", marginLeft: "15px" }}>
                             <h4>{t('interface.technologiesTitle')}</h4>
                             <p style={{fontSize: "0.8rem"}}>{t('interface.frontendStack')}</p>
@@ -404,8 +404,8 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                     <div
                         style={{
                             width: isMobile ? "100%" : "30%",
-                            border: "1px solid  rgba(197, 167, 252, 0.541)",
-                            backgroundColor: "#362752",
+                            border: "1px solid var(--workflow-accent)",
+                            backgroundColor: "var(--workflow-card-bg)",
                             borderRadius: "10px",
                             overflow: "hidden",
                             display: "flex",
@@ -415,15 +415,15 @@ export default function WorkFlowSection({ workflow }: WorkFlowSectionProps) {
                             padding: "8px"
                         }}
                     >
-                        <h4 style={{ color: "#C5A7FC", }}>{t('interface.connectedToNest')}</h4>
+                        <h4 style={{ color: "var(--workflow-accent)", }}>{t('interface.connectedToNest')}</h4>
                     </div>
                 </div>
             </div>
             <div>
-                
+
             </div>
         </div>
     </div>
-    
+
   );
 }

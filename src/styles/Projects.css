@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a0033 0%, #2d1b4e 50%, #1a0033 100%);
-  color: #fff;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
 }
 
 .projects-full {
@@ -29,9 +29,15 @@
   background-clip: text;
 }
 
+[data-theme="light"] .projects-header h1 {
+  background: none;
+  -webkit-text-fill-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
 .projects-header p {
   font-size: 1.1rem;
-  color: #b0b0b0;
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;

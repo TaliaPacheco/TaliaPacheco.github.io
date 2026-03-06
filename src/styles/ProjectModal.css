@@ -50,7 +50,7 @@
   right: 15px;
   background: none;
   border: none;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 32px;
   cursor: pointer;
   font-weight: 300;
