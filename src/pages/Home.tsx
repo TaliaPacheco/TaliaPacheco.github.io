@@ -1,7 +1,9 @@
 import '../styles/Home.css';
+import '../styles/animations.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useScrollAnimations } from '../hooks/useScrollAnimations';
 
 import reactSVG from '../assets/icons/react.svg';
 import reactNativeSVG from '../assets/icons/reactNative.svg';
@@ -25,7 +27,7 @@ import carteiraSVG from '../assets/icons/carteira.svg';
 import cuboPNG from '../assets/icons/cubo.svg';
 import mesaSVG from '../assets/icons/mesa.svg';
 
-import TaliaIMG from '../assets/Talia-foto.png';
+import TaliaIMG from '../assets/Perfil-profissional(sem-fundo).png';
 import ProjectsSection from '../components/ProjectsSection';
 import SkillsSection from '../components/SkillsSection';
 import ProjectModal from '../components/ProjectModal';
@@ -45,6 +47,8 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const navigate = useNavigate();
 
+  useScrollAnimations();
+
   const openContactModal = () => setIsContactModalOpen(true);
   const closeContactModal = () => setIsContactModalOpen(false);
 
@@ -55,9 +59,9 @@ export default function Home() {
       titleKey: 'projects.monitoringTitle',
       descKey: 'projects.monitoringDesc',
       detailsKey: 'projects.monitoringDetails',
-      alt: "monitoramento meteorológico",
+      alt: "monitoramento meteorologico",
       technologies: ["React", "TypeScript", "Tailwind CSS", "API Weather"],
-      features: ["Previsão de 7 dias", "Gráficos em tempo real", "Alertas de clima", "Múltiplas cidades"],
+      features: ["Previsao de 7 dias", "Graficos em tempo real", "Alertas de clima", "Multiplas cidades"],
       image: climaImg,
       link: "https://github.com/TaliaPacheco/Monitoramento-meteorol-gico",
       WorkFlow: <WorkFlowSection />
@@ -70,7 +74,7 @@ export default function Home() {
       detailsKey: 'projects.refundDetails',
       alt: "Sistema de Reembolso",
       technologies: ["React", "Node.js", "PostgreSQL", "Express.js"],
-      features: ["Fluxo de aprovação", "Relatórios", "Integração com banco de dados", "Notificações"],
+      features: ["Fluxo de aprovacao", "Relatorios", "Integracao com banco de dados", "Notificacoes"],
       image: reembolsoImg,
       link: "https://github.com/TaliaPacheco/Projeto-Sistema-de-reembolso",
       WorkFlow: <WorkFlowRefund />
@@ -83,7 +87,7 @@ export default function Home() {
       detailsKey: 'projects.restaurantDetails',
       alt: "API Restaurante",
       technologies: ["Node.js", "Express.js", "PostgreSQL", "JWT"],
-      features: ["Gerenciamento de mesas", "Pedidos em tempo real", "Autenticação segura", "Relatórios"],
+      features: ["Gerenciamento de mesas", "Pedidos em tempo real", "Autenticacao segura", "Relatorios"],
       image: mesaImg,
       link: "https://github.com/TaliaPacheco/api-restaurante",
       WorkFlow: <WorkFlowRestaurante />
@@ -107,38 +111,44 @@ export default function Home() {
     <div className="home-container">
       <header className="navbar">
         <div className="navbar-content">
-          <div className="logo">
-            <img src={cuboPNG} alt="Logo" />
-            <span>Talia Pacheco</span>
-          </div>
-          
-          <nav className="nav-links">
+          <nav className="nav-links nav-links--left">
             <a href="#habilidades">{t('navbar.skills')}</a>
+            <span className="nav-dot"></span>
             <a href="#Projetos">{t('navbar.projects')}</a>
-            <a href="#contato" onClick={(e) => { e.preventDefault(); openContactModal(); }}>{t('navbar.contact')}</a>
           </nav>
 
-          <button className="cta-button" onClick={openContactModal}>{t('navbar.cta')}</button>
+          <div className="logo">
+            <img src={cuboPNG} alt="Logo" />
+          </div>
+
+          <nav className="nav-links nav-links--right">
+            <a href="#contato" onClick={(e) => { e.preventDefault(); openContactModal(); }}>{t('navbar.contact')}</a>
+            <span className="nav-dot"></span>
+            <a href="https://github.com/taliapacheco" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </nav>
         </div>
       </header>
 
       <section className="hero">
-        <div className="hero-content">
-          <h1>{t('hero.greeting')} <br/>{t('hero.name')}</h1>
-          <p>{t('hero.subtitle')}</p>
-          
-          <div className="hero-buttons">
-            <CVDownloadButton />
-            <button className="btn btn-primary" onClick={() => navigate('/projects')}>{t('hero.viewProjects')}</button>
-            <button className="btn btn-secondary" onClick={openContactModal}>{t('hero.talkWithMe')}</button>
+        <p className="hero-label hero-text-reveal">{t('hero.greeting')}</p>
+
+        <div className="hero-portrait">
+          <div className="hero-orb">
+            <div className="hero-orb-ring hero-orb-ring--1"></div>
+            <div className="hero-orb-ring hero-orb-ring--2"></div>
+            <div className="hero-orb-ring hero-orb-ring--3"></div>
+            <div className="hero-orb-core"></div>
           </div>
+          <img src={TaliaIMG} alt="Talia Pacheco" className="hero-portrait-img" />
         </div>
 
-        <div className="hero-image">
-          <div className="avatar-circle">
-            <img src={TaliaIMG} alt="Talia Pacheco" />
+        <h1 className="hero-name hero-text-reveal">{t('hero.name')}</h1>
+        <p className="hero-subtitle hero-subtitle-reveal">{t('hero.subtitle')}</p>
 
-          </div>
+        <div className="hero-buttons hero-buttons-reveal">
+          <CVDownloadButton />
+          <button className="btn btn-primary" onClick={() => navigate('/projects')}>{t('hero.viewProjects')}</button>
+          <button className="btn btn-secondary" onClick={openContactModal}>{t('hero.talkWithMe')}</button>
         </div>
       </section>
 
@@ -150,137 +160,31 @@ export default function Home() {
         { label: t('skills.tools'), category: "Ferramentas" },
       ]}
       skills={[
-        {
-          id: 1,
-          icon: reactSVG,
-          title: "React",
-          proficiency: "Intermediário",
-          alt: "React",
-          category: "frontend"
-        },
-        {
-          id: 2,
-          icon: typescriptSVG,
-          title: "TypeScript",
-          proficiency: "Intermediário",
-          alt: "TypeScript",
-          category: "frontend"
-        },
-        {
-          id: 3,
-          icon: html5SVG,
-          title: "HTML5",
-          proficiency: "Avançado",
-          alt: "HTML5",
-          category: "frontend"
-        },
-        {
-          id: 4,
-          icon: css3SVG,
-          title: "CSS3",
-          proficiency: "Avançado",
-          alt: "CSS3",
-          category: "frontend"
-        },
-        {
-          id: 5,
-          icon: reactNativeSVG,
-          title: "React Native",
-          proficiency: "Intermediário",
-          alt: "React Native",
-          category: "frontend"
-        },
-        {
-          id: 6,
-          icon: nextJSSVG,
-          title: "Next.js",
-          proficiency: "intermediário",
-          alt: "Next.js",
-          category: "frontend"
-        },
-        {
-          id: 7,
-          icon: nodeJSSVG,
-          title: "Node.js",
-          proficiency: "Avançado",
-          alt: "Node.js",
-          category: "backend"
-        },
-        {
-          id: 8,
-          icon: postgresSVG,
-          title: "PostgreSQL",
-          proficiency: "Intermediário",
-          alt: "PostgreSQL",
-          category: "databases"
-        },
-        {
-          id: 9,
-          icon: dockerSVG,
-          title: "Docker",
-          proficiency: "Intermediário",
-          alt: "Docker",
-          category: "Ferramentas"
-        },
-        {
-          id: 10,
-          icon: expressjsSVG,
-          title: "Express.js",
-          proficiency: "Intermediário",
-          alt: "Express.js",
-          category: "backend"
-        },
-        {
-          id: 11,
-          icon: githubSVG,
-          title: "GitHub",
-          proficiency: "Avançado",
-          alt: "GitHub",
-          category: "Ferramentas"
-        },
-        {
-          id: 12,
-          icon: mysqlSVG,
-          title: "MySQL",
-          proficiency: "Intermediário",
-          alt: "MySQL",
-          category: "databases"
-        },
-        {
-          id: 13,
-          icon: tailwindSVG,
-          title: "Tailwind CSS",
-          proficiency: "Avançado",
-          alt: "Tailwind CSS",
-          category: "frontend"
-        },
-        {
-          id: 14,
-          icon: userSVG,
-          title: "JWT",
-          proficiency: "Intermediário",
-          alt: "JWT",
-          category: "backend"
-        },
-        {
-          id: 15,
-          icon: nestjsSVG,
-          title: "NestJS",
-          proficiency: "Intermediário",
-          alt: "NestJS",
-          category: "backend"
-        },
-
+        { id: 1, icon: reactSVG, title: "React", proficiency: "Intermediario", alt: "React", category: "frontend" },
+        { id: 2, icon: typescriptSVG, title: "TypeScript", proficiency: "Intermediario", alt: "TypeScript", category: "frontend" },
+        { id: 3, icon: html5SVG, title: "HTML5", proficiency: "Avancado", alt: "HTML5", category: "frontend" },
+        { id: 4, icon: css3SVG, title: "CSS3", proficiency: "Avancado", alt: "CSS3", category: "frontend" },
+        { id: 5, icon: reactNativeSVG, title: "React Native", proficiency: "Intermediario", alt: "React Native", category: "frontend" },
+        { id: 6, icon: nextJSSVG, title: "Next.js", proficiency: "intermediario", alt: "Next.js", category: "frontend" },
+        { id: 7, icon: nodeJSSVG, title: "Node.js", proficiency: "Avancado", alt: "Node.js", category: "backend" },
+        { id: 8, icon: postgresSVG, title: "PostgreSQL", proficiency: "Intermediario", alt: "PostgreSQL", category: "databases" },
+        { id: 9, icon: dockerSVG, title: "Docker", proficiency: "Intermediario", alt: "Docker", category: "Ferramentas" },
+        { id: 10, icon: expressjsSVG, title: "Express.js", proficiency: "Intermediario", alt: "Express.js", category: "backend" },
+        { id: 11, icon: githubSVG, title: "GitHub", proficiency: "Avancado", alt: "GitHub", category: "Ferramentas" },
+        { id: 12, icon: mysqlSVG, title: "MySQL", proficiency: "Intermediario", alt: "MySQL", category: "databases" },
+        { id: 13, icon: tailwindSVG, title: "Tailwind CSS", proficiency: "Avancado", alt: "Tailwind CSS", category: "frontend" },
+        { id: 14, icon: userSVG, title: "JWT", proficiency: "Intermediario", alt: "JWT", category: "backend" },
+        { id: 15, icon: nestjsSVG, title: "NestJS", proficiency: "Intermediario", alt: "NestJS", category: "backend" },
       ]}
     />
 
-    <ProjectsSection 
+    <ProjectsSection
       projects={[
         {
           icon: climaSVG,
           title: t('projects.monitoringTitle'),
           description: t('projects.monitoringDesc'),
-          alt: "monitoramento meteorológico",
+          alt: "monitoramento meteorologico",
           onClick: () => handleProjectClick(1)
         },
         {
@@ -302,11 +206,11 @@ export default function Home() {
           isMoreProjects: true,
         },
       ]}
-    />      
-    
+    />
+
     <ContactSection />
-    
-      <footer >
+
+      <footer>
         <div className="footer-content detail">
           <a href="https://github.com/taliapacheco" target="_blank" rel="noopener noreferrer">
             <img src={githubSVG} alt="GitHub" />
@@ -318,13 +222,13 @@ export default function Home() {
         <div className="footer-content">
           <p>&copy; {t('footer.copyright')}</p>
         </div>
-      </footer> 
+      </footer>
 
       <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
-      <ProjectModal 
-        isOpen={selectedProject !== null} 
-        project={selectedProject} 
-        onClose={() => setSelectedProject(null)} 
+      <ProjectModal
+        isOpen={selectedProject !== null}
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
       />
     </div>
   );
