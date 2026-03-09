@@ -1,10 +1,63 @@
 .home-container {
   width: 100%;
-  min-height: auto ;
+  min-height: auto;
   background: var(--bg-gradient);
   color: var(--text-primary);
   overflow: hidden;
   padding-bottom: 0px;
+  position: relative;
+}
+
+/* Vignette — edges darken, fades out smoothly at bottom */
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130vh;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 35%,
+    transparent 30%,
+    rgba(10, 0, 20, 0.55) 100%
+  );
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ambient glows — fade out smoothly */
+.home-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130vh;
+  background:
+    radial-gradient(circle 500px at 15% 35%, rgba(233, 30, 99, 0.12) 0%, transparent 70%),
+    radial-gradient(circle 400px at 80% 25%, rgba(156, 39, 176, 0.10) 0%, transparent 70%),
+    radial-gradient(circle 300px at 60% 65%, rgba(233, 30, 99, 0.08) 0%, transparent 70%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="light"] .home-container::before {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 35%,
+    transparent 30%,
+    rgba(200, 180, 220, 0.35) 100%
+  );
+}
+
+[data-theme="light"] .home-container::after {
+  background:
+    radial-gradient(circle 500px at 15% 35%, rgba(233, 30, 99, 0.07) 0%, transparent 70%),
+    radial-gradient(circle 400px at 80% 25%, rgba(156, 39, 176, 0.06) 0%, transparent 70%),
+    radial-gradient(circle 300px at 60% 65%, rgba(233, 30, 99, 0.05) 0%, transparent 70%);
 }
 
 .navbar {
@@ -86,22 +139,52 @@
   color: #E91E63;
 }
 
+/* Subtle dot grid for texture — covers hero area */
+.hero-grid-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130vh;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] .hero-grid-texture {
+  background-image: radial-gradient(rgba(45, 27, 78, 0.04) 1px, transparent 1px);
+}
+
 .hero {
   max-width: 1200px;
   margin: 0 auto;
   padding: 6rem 2rem 4rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
   min-height: 100vh;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 3rem;
   position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-family: "Inter", sans-serif;
 }
 
 .hero-label {
-  font-size: 0.95rem;
-  letter-spacing: 0.35em;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(233, 30, 99, 0.85);
   font-weight: 600;
@@ -113,7 +196,7 @@
   position: relative;
   width: 420px;
   height: 480px;
-  margin-bottom: 2rem;
+  flex-shrink: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -298,59 +381,77 @@
 }
 
 .hero-name {
+  font-family: "Inter", sans-serif;
   font-size: 4.5rem;
   font-weight: 800;
   line-height: 1.05;
   margin: 0 0 1rem 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0 0 2.5rem 0;
   max-width: 500px;
+  font-weight: 400;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .btn {
-  padding: 0.875rem 2rem;
+  padding: 0.8rem 1.8rem;
   border: none;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.88rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.02em;
+  font-family: "Inter", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-primary {
-  background: #E91E63;
+  background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
   color: white;
+  box-shadow: 0 4px 14px rgba(233, 30, 99, 0.25);
 }
 
 .btn-primary:hover {
-  background: #C2185B;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(233, 30, 99, 0.3);
+  box-shadow: 0 8px 24px rgba(233, 30, 99, 0.35);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.06);
   color: var(--btn-secondary-color);
-  border: 2px solid var(--btn-secondary-border);
+  border: 1px solid var(--btn-secondary-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="light"] .btn-secondary {
+  background: rgba(45, 27, 78, 0.04);
 }
 
 .btn-secondary:hover {
-  border-color: #E91E63;
+  border-color: rgba(233, 30, 99, 0.5);
   color: #E91E63;
+  background: rgba(233, 30, 99, 0.08);
   transform: translateY(-2px);
 }
 
@@ -379,6 +480,13 @@
   .hero {
     padding: 5rem 1rem 2rem;
     min-height: auto;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    align-items: center;
+    text-align: center;
   }
 
   .hero-name {
@@ -407,6 +515,7 @@
   .hero-buttons {
     flex-direction: column;
     width: 100%;
+    justify-content: center;
   }
 
   .btn {
@@ -423,6 +532,11 @@
 
   .logo {
     margin: 0;
+  }
+
+  .hero-text {
+    align-items: center;
+    text-align: center;
   }
 
   .hero-name {

@@ -129,8 +129,19 @@ export default function Home() {
         </div>
       </header>
 
+      <div className="hero-grid-texture"></div>
       <section className="hero">
-        <p className="hero-label hero-text-reveal">{t('hero.greeting')}</p>
+        <div className="hero-text">
+          <p className="hero-label hero-text-reveal">{t('hero.greeting')}</p>
+          <h1 className="hero-name hero-text-reveal">{t('hero.name')}</h1>
+          <p className="hero-subtitle hero-subtitle-reveal">{t('hero.subtitle')}</p>
+
+          <div className="hero-buttons hero-buttons-reveal">
+            <CVDownloadButton />
+            <button className="btn btn-primary" onClick={() => navigate('/projects')}>{t('hero.viewProjects')}</button>
+            <button className="btn btn-secondary" onClick={openContactModal}>{t('hero.talkWithMe')}</button>
+          </div>
+        </div>
 
         <div className="hero-portrait">
           <div className="hero-orb">
@@ -140,15 +151,6 @@ export default function Home() {
             <div className="hero-orb-core"></div>
           </div>
           <img src={TaliaIMG} alt="Talia Pacheco" className="hero-portrait-img" />
-        </div>
-
-        <h1 className="hero-name hero-text-reveal">{t('hero.name')}</h1>
-        <p className="hero-subtitle hero-subtitle-reveal">{t('hero.subtitle')}</p>
-
-        <div className="hero-buttons hero-buttons-reveal">
-          <CVDownloadButton />
-          <button className="btn btn-primary" onClick={() => navigate('/projects')}>{t('hero.viewProjects')}</button>
-          <button className="btn btn-secondary" onClick={openContactModal}>{t('hero.talkWithMe')}</button>
         </div>
       </section>
 
