@@ -67,7 +67,15 @@
       "messageBroker": "Message Broker",
       "worker": "Processador",
       "api": "API",
-      "database": "Banco de Dados"
+      "database": "Banco de Dados",
+      "auth": "Autenticação",
+      "routing": "Roteamento",
+      "employeeView": "Visão Funcionário",
+      "managerView": "Visão Gerente",
+      "routes": "Rotas",
+      "controllers": "Controladores",
+      "orm": "ORM",
+      "validation": "Validação"
     },
     "refund": {
       "workflowTitle": "Fluxo de Trabalho do Projeto",

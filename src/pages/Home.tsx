@@ -21,91 +21,32 @@ import tailwindSVG from '../assets/icons/tailwind.svg';
 import userSVG from '../assets/icons/user-check.svg';
 import linkedinSVG from '../assets/icons/linkedin.svg';
 import nestjsSVG from '../assets/icons/nestjs.svg';
+import pythonSVG from '../assets/icons/python.svg';
+import rabbitmqSVG from '../assets/icons/rabbitmq.svg';
+import goSVG from '../assets/icons/go.svg';
+import databaseSVG from '../assets/icons/database.svg';
+import viteSVG from '../assets/icons/vite.svg';
 
-import climaSVG from '../assets/icons/clima.svg';
-import carteiraSVG from '../assets/icons/carteira.svg';
 import cuboPNG from '../assets/icons/cubo.svg';
-import mesaSVG from '../assets/icons/mesa.svg';
 
 import TaliaIMG from '../assets/Perfil-profissional(sem-fundo).png';
 import ProjectsSection from '../components/ProjectsSection';
 import SkillsSection from '../components/SkillsSection';
-import ProjectModal from '../components/ProjectModal';
 import ContactModal from '../components/ContactModal';
-import WorkFlowSection from '../components/WorkFlowSection';
-import WorkFlowRefund from '../components/WorkFlowRefund';
-import WorkFlowRestaurante from '../components/WorkFlowRestaurant';
+import ArchitectureFlow from '../components/ArchitectureFlow';
 import ContactSection from '../components/ContactSection';
 import CVDownloadButton from '../components/CVDownloadButton';
 import climaImg from '../assets/images/climaImg.png';
-import reembolsoImg from '../assets/images/reembolso.jpg';
-import mesaImg from '../assets/images/mesa.jpg';
 
 export default function Home() {
   const { t } = useTranslation();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
   const navigate = useNavigate();
 
   useScrollAnimations();
 
   const openContactModal = () => setIsContactModalOpen(true);
   const closeContactModal = () => setIsContactModalOpen(false);
-
-  const projectsData = [
-    {
-      id: 1,
-      icon: climaSVG,
-      titleKey: 'projects.monitoringTitle',
-      descKey: 'projects.monitoringDesc',
-      detailsKey: 'projects.monitoringDetails',
-      alt: "monitoramento meteorologico",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "API Weather"],
-      features: ["Previsao de 7 dias", "Graficos em tempo real", "Alertas de clima", "Multiplas cidades"],
-      image: climaImg,
-      link: "https://github.com/TaliaPacheco/Monitoramento-meteorol-gico",
-      WorkFlow: <WorkFlowSection />
-    },
-    {
-      id: 2,
-      icon: carteiraSVG,
-      titleKey: 'projects.refundTitle',
-      descKey: 'projects.refundDesc',
-      detailsKey: 'projects.refundDetails',
-      alt: "Sistema de Reembolso",
-      technologies: ["React", "Node.js", "PostgreSQL", "Express.js"],
-      features: ["Fluxo de aprovacao", "Relatorios", "Integracao com banco de dados", "Notificacoes"],
-      image: reembolsoImg,
-      link: "https://github.com/TaliaPacheco/Projeto-Sistema-de-reembolso",
-      WorkFlow: <WorkFlowRefund />
-    },
-    {
-      id: 3,
-      icon: mesaSVG,
-      titleKey: 'projects.restaurantTitle',
-      descKey: 'projects.restaurantDesc',
-      detailsKey: 'projects.restaurantDetails',
-      alt: "API Restaurante",
-      technologies: ["Node.js", "Express.js", "PostgreSQL", "JWT"],
-      features: ["Gerenciamento de mesas", "Pedidos em tempo real", "Autenticacao segura", "Relatorios"],
-      image: mesaImg,
-      link: "https://github.com/TaliaPacheco/api-restaurante",
-      WorkFlow: <WorkFlowRestaurante />
-    }
-  ];
-
-  const handleProjectClick = (projectId: number) => {
-    const project = projectsData.find(p => p.id === projectId);
-    if (project) {
-      const projectWithTranslatedTitle = {
-        ...project,
-        title: t(project.titleKey),
-        description: t(project.descKey),
-        details: t(project.detailsKey)
-      };
-      setSelectedProject(projectWithTranslatedTitle);
-    }
-  };
 
   return (
     <div className="home-container">
@@ -181,33 +122,26 @@ export default function Home() {
     />
 
     <ProjectsSection
-      projects={[
-        {
-          icon: climaSVG,
-          title: t('projects.monitoringTitle'),
-          description: t('projects.monitoringDesc'),
-          alt: "monitoramento meteorologico",
-          onClick: () => handleProjectClick(1)
-        },
-        {
-          icon: carteiraSVG,
-          title: t('projects.refundTitle'),
-          description: t('projects.refundDesc'),
-          alt: "Sistema de Reembolso",
-          onClick: () => handleProjectClick(2)
-        },
-        {
-          icon: mesaSVG,
-          title: t('projects.restaurantTitle'),
-          description: t('projects.restaurantDesc'),
-          alt: "API Restaurante",
-          onClick: () => handleProjectClick(3)
-        },
-        {
-          title: t('projects.viewMore'),
-          isMoreProjects: true,
-        },
-      ]}
+      featuredProjects={
+        <ArchitectureFlow
+          titleKey="projects.monitoringTitle"
+          subtitleKey="projects.monitoringDetails"
+          githubUrl="https://github.com/TaliaPacheco/Monitoramento-meteorol-gico"
+          image={climaImg}
+          imageAlt="Weather Monitoring Dashboard"
+          dockerIcon={dockerSVG}
+          steps={[
+            { icon: pythonSVG, name: 'Python', roleKey: 'workflow.workflowSection.collector', description: 'OpenWeather API → 60s interval', detail: 'Cron job que coleta dados climáticos da API OpenWeather a cada 60 segundos e publica as mensagens na fila.', accent: '#3776AB' },
+            { icon: rabbitmqSVG, name: 'RabbitMQ', roleKey: 'workflow.workflowSection.messageBroker', description: 'AMQP · Queue: weather', detail: 'Broker de mensagens que desacopla o coletor do processamento, garantindo entrega confiável com durabilidade e TTL.', accent: '#FF6600' },
+            { icon: goSVG, name: 'Go', roleKey: 'workflow.workflowSection.worker', description: '1000+ msg/s · ~50MB RAM', detail: 'Consumer de alta performance que consome mensagens da fila e envia os dados processados para a API via HTTP.', accent: '#00ADD8' },
+            { icon: nestjsSVG, name: 'NestJS', roleKey: 'workflow.workflowSection.api', description: 'REST · JWT · Mongoose', detail: 'API RESTful com autenticação JWT, integração com OpenAI para insights climáticos e recomendações Pokémon por clima.', accent: '#E0234E' },
+            { icon: databaseSVG, name: 'MongoDB', roleKey: 'workflow.workflowSection.database', description: 'weatherDB · TTL 30d', detail: 'Armazena histórico de dados meteorológicos e usuários com indexação otimizada e expiração automática.', accent: '#47A248' },
+            { icon: reactSVG, name: 'Frontend', roleKey: 'interface.technologiesTitle', description: 'Dashboard · Mapa · Charts', detail: 'Dashboard responsivo com mapa interativo Leaflet, indicadores em tempo real e exportação em Excel/CSV.', accent: '#61DAFB', techIcons: [
+              { icon: reactSVG, name: 'React' }, { icon: viteSVG, name: 'Vite' }, { icon: tailwindSVG, name: 'Tailwind' },
+            ]},
+          ]}
+        />
+      }
     />
 
     <ContactSection />
@@ -227,11 +161,6 @@ export default function Home() {
       </footer>
 
       <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
-      <ProjectModal
-        isOpen={selectedProject !== null}
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
     </div>
   );
 }

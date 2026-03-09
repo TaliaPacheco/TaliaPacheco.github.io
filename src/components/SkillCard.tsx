@@ -25,7 +25,9 @@ export default function SkillCard({ icon, title, proficiency, alt }: SkillCardPr
 
   return (
     <div className="skill-card">
-      <img src={icon} alt={alt} className="skill-icon" />
+      <div className="skill-icon-container">
+        <img src={icon} alt={alt} className="skill-icon" />
+      </div>
       <h3>{title}</h3>
       <p className="proficiency">{getProficiencyTranslation(proficiency)}</p>
     </div>

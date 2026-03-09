@@ -247,10 +247,64 @@
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 40px 20px;
+    padding: 40px 15px;
   }
 
   .contact-section .modal-content {
-    padding: 30px;
+    padding: 30px 20px;
+  }
+
+  .contact-section .modal-left h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 30px 10px;
+  }
+
+  .contact-section .modal-content {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .contact-section .modal-left h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-section .modal-left p {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .info-icon {
+    min-width: 38px;
+    height: 38px;
+    font-size: 20px;
+    border-radius: 8px;
+  }
+
+  .info-item h4 {
+    font-size: 0.9rem;
+  }
+
+  .info-item a {
+    font-size: 0.85rem;
+  }
+
+  .form-group label {
+    font-size: 0.88rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  .submit-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 }
