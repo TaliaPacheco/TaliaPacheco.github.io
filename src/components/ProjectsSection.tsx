@@ -22,7 +22,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   
   return (
     <section className="projects" id="Projetos">
-      <h2>{t('projects.title')}</h2>
+      <h2 className="section-heading-reveal">{t('projects.title')}</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
           <ProjectCard

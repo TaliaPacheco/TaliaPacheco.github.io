@@ -27,8 +27,8 @@ export default function SkillsSection({ skills, filterButtons }: SkillsSectionPr
   return (
     <section className="habilidades-section" id="habilidades">
       <div className="habilidades-container">
-        <h2>{t('skills.title')}</h2>
-        <p className="section-subtitle">{t('skills.subtitle')}</p>
+        <h2 className="section-heading-reveal">{t('skills.title')}</h2>
+        <p className="section-subtitle section-subtitle-reveal">{t('skills.subtitle')}</p>
         
         {filterButtons && (
           <div className="filter-buttons">
