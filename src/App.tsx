@@ -11,7 +11,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000, display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000, display: 'flex', gap: '10px', alignItems: 'center' }}>
           <ThemeToggle />
           <LanguageToggle />
         </div>

@@ -67,7 +67,15 @@
       "messageBroker": "Message Broker",
       "worker": "Worker",
       "api": "API",
-      "database": "Database"
+      "database": "Database",
+      "auth": "Authentication",
+      "routing": "Routing",
+      "employeeView": "Employee View",
+      "managerView": "Manager View",
+      "routes": "Routes",
+      "controllers": "Controllers",
+      "orm": "ORM",
+      "validation": "Validation"
     },
     "refund": {
       "workflowTitle": "Project Workflow",

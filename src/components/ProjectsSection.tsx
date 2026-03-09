@@ -1,40 +1,26 @@
-import ProjectCard from './ProjectCard';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-interface Project {
-  icon?: string;
-  title?: string;
-  description?: string;
-  alt?: string;
-  onClick?: () => void;
-  isMoreProjects?: boolean;
-}
-
-
 interface ProjectsSectionProps {
-  projects: Project[];
+  featuredProjects?: React.ReactNode;
 }
 
-export default function ProjectsSection({ projects }: ProjectsSectionProps) {
+export default function ProjectsSection({ featuredProjects }: ProjectsSectionProps) {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  
+
   return (
     <section className="projects" id="Projetos">
       <h2 className="section-heading-reveal">{t('projects.title')}</h2>
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            icon={project.icon}
-            title={project.title}
-            description={project.description}
-            alt={project.alt}
-            isMoreProjects={project.isMoreProjects}
-            onClick={project.isMoreProjects ? () => navigate('/projects') : project.onClick}
-          />
-        ))}
+
+      {featuredProjects}
+
+      <div className="view-more-container">
+        <button className="view-more-btn" onClick={() => navigate('/projects')}>
+          <span className="view-more-text">{t('projects.viewMore')}</span>
+          <span className="view-more-arrow">→</span>
+        </button>
       </div>
     </section>
   );
